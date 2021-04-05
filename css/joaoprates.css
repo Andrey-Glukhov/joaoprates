@@ -1,0 +1,267 @@
+body,
+html {
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 0;
+    background-color: #F4EEE7;
+}
+
+* {
+    margin: 0;
+}
+
+
+/* body {
+background-color: #D5C5B3;
+} */
+
+
+/*--------------------------------------------------------------
+global
+--------------------------------------------------------------*/
+
+input,
+textarea,
+select,
+a,
+button {
+    outline: none;
+}
+
+input,
+textarea,
+select,
+a,
+button:focus {
+    outline: none;
+}
+
+input,
+textarea,
+select,
+a,
+button:active {
+    outline: none;
+}
+
+
+/*--------------------------------------------------------------
+navigation
+--------------------------------------------------------------*/
+
+nav {
+    position: fixed;
+    top: auto;
+    left: auto;
+    /* width: 100%; */
+    min-height: 40px;
+    z-index: 110;
+}
+
+.navbar>.navbar-brand>img {
+    width: 75px;
+    height: auto;
+}
+
+.menu-btn {
+    position: fixed;
+    margin: 25px 15px;
+    right: 0;
+    top: 0;
+    z-index: 100;
+}
+
+.menu {
+    height: 100%;
+    width: 25vw;
+    top: 0;
+    right: 0;
+    position: fixed;
+    transform: translateX(30vw);
+    transition: 0.7s;
+    z-index: 99;
+    /*background-color: #e5ff80;*/
+    background-color: rgb(196, 255, 0);
+}
+
+.menu.active {
+    transform: translateX(0);
+}
+
+.devide_menu {
+    position: fixed;
+    top: auto;
+    left: auto;
+    width: 100%;
+    min-height: 40px;
+    z-index: 99;
+}
+
+.menu_sticker {
+    position: absolute;
+    left: 0;
+    top: -150%;
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.animated-icon1 {
+    width: 35px;
+    height: 40px;
+    margin: 0px;
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+    -webkit-transition: .5s ease-in-out;
+    -moz-transition: .5s ease-in-out;
+    -o-transition: .5s ease-in-out;
+    transition: .5s ease-in-out;
+    cursor: pointer;
+}
+
+.animated-icon1 span {
+    display: block;
+    position: absolute;
+    height: 5px;
+    width: 100%;
+    border-radius: 0;
+    opacity: 1;
+    left: 0;
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+    -webkit-transition: .25s ease-in-out;
+    -moz-transition: all .25s ease-in-out;
+    -o-transition: all .25s ease-in-out;
+    transition: all .25s ease-in-out;
+    background-color: #ffffff;
+    /*background-color:rgb(196, 255, 0);*/
+    /*background: #e5ff80;*/
+}
+
+.animated-icon1 span:nth-child(1) {
+    top: 0px;
+}
+
+.animated-icon1 span:nth-child(2) {
+    top: 11px;
+}
+
+.animated-icon1 span:nth-child(3) {
+    top: 22px;
+}
+
+.animated-icon1.open span:nth-child(1) {
+    top: 11px;
+    right: 0;
+    -webkit-transform: rotate(135deg);
+    -moz-transform: rotate(135deg);
+    -o-transform: rotate(135deg);
+    transform: rotate(135deg);
+    background-color: #ffffff;
+    /*background: #D5C5B3;*/
+}
+
+.animated-icon1.open span:nth-child(2) {
+    right: 0;
+    opacity: 0;
+    right: -60px;
+}
+
+.animated-icon1.open span:nth-child(3) {
+    top: 11px;
+    right: 0;
+    -webkit-transform: rotate(-135deg);
+    -moz-transform: rotate(-135deg);
+    -o-transform: rotate(-135deg);
+    transform: rotate(-135deg);
+    background-color: #ffffff;
+    /*background: #D5C5B3;*/
+}
+
+.category-nav {
+    position: fixed;
+    top: 90px;
+    left: 10px;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+}
+
+.r_d {
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    width: 15px;
+    height: 15px;
+    border-radius: 15px;
+    background-color: #ffffff;
+    z-index: 2;
+    cursor: pointer;
+}
+
+.r_d.overlay_icon_research,
+.r_d.overlay_icon_demonstrators,
+.r_d.overlay_icon_exhibitions,
+.r_d.overlay_icon_visions,
+.r_d.overlay_icon_dialogues,
+.r_d.overlay_icon_updates {
+    background-color: transparent;
+}
+
+li.menu-item>a {
+    text-align: center;
+    font-family: 'Bitter', serif;
+    font-weight: 400;
+    font-size: 2rem;
+    color: #D5C5B3;
+}
+
+li.menu-item {
+    margin: 10px 0;
+    text-align: center;
+}
+
+.menu_wraper {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0;
+}
+
+#menu-menu-1 {
+    width: 100%;
+}
+
+
+/*--------------------------------------------------------------
+responsive
+--------------------------------------------------------------*/
+
+
+/*xs*/
+
+@media only screen and (max-width: 576px) {}
+
+
+/*sm*/
+
+@media screen and (min-width: 576px) and (max-width: 768px) {}
+
+
+/*md*/
+
+@media screen and (min-width: 768px) and (max-width: 992px) {}
+
+
+/*lg*/
+
+@media screen and (min-width: 992px) {}
