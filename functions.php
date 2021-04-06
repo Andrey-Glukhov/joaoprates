@@ -24,8 +24,11 @@ add_action( 'wp_enqueue_scripts', 'jp_script_enqueue' );
 
 function jp_theme_setup(){
   add_theme_support('menus');
-  register_nav_menu('primary', 'Primary Header Navigation');
-  register_nav_menu('footer_menu', 'Footer Navigation Area');
+  register_nav_menu('primary_left', 'Primary Header Left');
+  register_nav_menu('primary_right', 'Primary Header Right');
+  register_nav_menu('footer_links_menu', 'Footer Links Area');
+  register_nav_menu('footer_support_menu', 'Footer Support Area');
+  register_nav_menu('footer_social_menu', 'Footer Social Area');
 }
 
 function mytheme_add_woocommerce_support() {

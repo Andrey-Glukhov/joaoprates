@@ -89,6 +89,16 @@ nav {
     transform: translateX(0);
 }
 
+.nav_menu_left,
+.nav_menu_right {
+    width: 40%;
+    justify-content: space-between;
+}
+
+.navbar-collapse {
+    border-bottom: #D5C5B3 2px solid;
+}
+
 .devide_menu {
     position: fixed;
     top: auto;
@@ -221,7 +231,7 @@ li.menu-item>a {
     text-align: center;
     font-family: 'Bitter', serif;
     font-weight: 400;
-    font-size: 2rem;
+    font-size: 1.5rem;
     color: #D5C5B3;
 }
 
@@ -233,7 +243,8 @@ li.menu-item {
 .menu_wraper {
     height: 100%;
     display: flex;
-    align-items: center;
+    width: 100%;
+    justify-content: space-around;
     padding: 0;
 }
 
