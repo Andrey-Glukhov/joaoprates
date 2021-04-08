@@ -19,8 +19,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 ?>
-<div class="container">
+<div class="container shop-container">
 <div class="row">
-<div class="col-4"></div>
-<div class="col-8">
+<div class="col-md-4"></div>
+<div class="col-md-8">
 <ul class=" products columns-<?php echo esc_attr( wc_get_loop_prop( 'columns' ) ); ?>">
