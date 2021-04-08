@@ -45,18 +45,40 @@ button:active {
     outline: none;
 }
 
+.page-padding,
+.content-area {
+    padding-top: 100px;
+}
+
+@font-face {
+    font-family: 'Jost-Regular';
+    src: url("./Jost-Regular.woff2") format("woff2"), url("./Jost-Regular.woff") format("woff");
+}
+
+@font-face {
+    font-family: 'Jost-Light';
+    src: url("./Jost-Light.woff2") format("woff2"), url("./Jost-Light.woff") format("woff");
+}
+
+@font-face {
+    font-family: 'Sitka';
+    src: url("./Sitka.woff2") format("woff2"), url("./Sitka.woff") format("woff");
+}
+
 
 /*--------------------------------------------------------------
 navigation
 --------------------------------------------------------------*/
 
-nav {
+nav.navbar {
     position: fixed;
     top: auto;
     left: auto;
-    /* width: 100%; */
+    width: 100%;
     min-height: 40px;
     z-index: 110;
+    padding-top: 0;
+    background-color: #F4EEE7;
 }
 
 .navbar>.navbar-brand>img {
@@ -72,31 +94,13 @@ nav {
     z-index: 100;
 }
 
-.menu {
-    height: 100%;
-    width: 25vw;
-    top: 0;
-    right: 0;
-    position: fixed;
-    transform: translateX(30vw);
-    transition: 0.7s;
-    z-index: 99;
-    /*background-color: #e5ff80;*/
-    background-color: rgb(196, 255, 0);
-}
-
 .menu.active {
     transform: translateX(0);
 }
 
-.nav_menu_left,
-.nav_menu_right {
-    width: 40%;
-    justify-content: space-between;
-}
-
 .navbar-collapse {
-    border-bottom: #D5C5B3 2px solid;
+    border-bottom: #000 2px solid;
+    margin-bottom: auto;
 }
 
 .devide_menu {
@@ -148,9 +152,7 @@ nav {
     -moz-transition: all .25s ease-in-out;
     -o-transition: all .25s ease-in-out;
     transition: all .25s ease-in-out;
-    background-color: #ffffff;
-    /*background-color:rgb(196, 255, 0);*/
-    /*background: #e5ff80;*/
+    background-color: #000000;
 }
 
 .animated-icon1 span:nth-child(1) {
@@ -172,8 +174,7 @@ nav {
     -moz-transform: rotate(135deg);
     -o-transform: rotate(135deg);
     transform: rotate(135deg);
-    background-color: #ffffff;
-    /*background: #D5C5B3;*/
+    background-color: #000000;
 }
 
 .animated-icon1.open span:nth-child(2) {
@@ -229,27 +230,121 @@ nav {
 
 li.menu-item>a {
     text-align: center;
-    font-family: 'Bitter', serif;
+    font-family: 'Jost-Regular', serif;
     font-weight: 400;
-    font-size: 1.5rem;
-    color: #D5C5B3;
+    font-size: 0.8rem;
+    color: #000;
 }
 
 li.menu-item {
     margin: 10px 0;
     text-align: center;
+    padding: 0 20px;
 }
 
 .menu_wraper {
     height: 100%;
     display: flex;
     width: 100%;
-    justify-content: space-around;
     padding: 0;
 }
 
 #menu-menu-1 {
     width: 100%;
+}
+
+
+/*--------------------------------------------------------------
+projects
+--------------------------------------------------------------*/
+
+h1.project_header {
+    font-family: 'Cormorant Infant', serif;
+    font-size: 3.2rem;
+    border-bottom: 2px solid #000000;
+    margin-bottom: 0;
+    color: #000000;
+}
+
+a p.project_header,
+a p.project_year {
+    font-family: 'Sitka', serif;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    color: #000000;
+    margin-bottom: 0;
+}
+
+a p.project_year {
+    text-align: right;
+}
+
+a p.project_header:hover,
+a p.project_year:hover {
+    color: #000000;
+    text-decoration: underline;
+}
+
+.events_link {
+    font-family: 'Sitka', serif;
+    font-size: 1.1rem;
+    margin: 20px 0 0 0;
+    padding-bottom: 20px;
+}
+
+.shop_link>a {
+    font-family: 'Sitka', serif;
+    font-size: 1.1rem;
+    padding-bottom: 20px;
+    color: rgb(129, 129, 129);
+    text-decoration: underline;
+}
+
+.ptitle_wraper {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0 0 0;
+    border-bottom: 2px solid #000000;
+    padding-bottom: 20px;
+}
+
+
+/*--------------------------------------------------------------
+about
+--------------------------------------------------------------*/
+
+h1.about_header {
+    font-family: 'Cormorant Infant', serif;
+    font-size: 2.8rem;
+    color: #000000;
+    margin-bottom: 0;
+    text-transform: uppercase;
+}
+
+.about_paragraf {
+    font-family: 'Jost-Light', serif;
+    font-size: 0.9rem;
+    color: #000000;
+    text-transform: uppercase;
+    padding: 40px 0;
+}
+
+.sign {
+    padding: 40px 0;
+    text-align: center;
+}
+
+.sign>img {
+    width: 60%;
+    height: auto;
+}
+
+.sign>figcaption {
+    text-align: right;
+    font-family: 'Jost-Light', serif;
+    font-size: 0.9rem;
+    color: #000000;
+    margin-right: 20px;
 }
 
 
@@ -260,7 +355,15 @@ responsive
 
 /*xs*/
 
-@media only screen and (max-width: 576px) {}
+@media only screen and (max-width: 576px) {
+    h1.about_header {
+        font-family: 'Cormorant Infant', serif;
+        font-size: 2.2rem;
+        color: #000000;
+        margin-bottom: 0;
+        text-transform: uppercase;
+    }
+}
 
 
 /*sm*/
