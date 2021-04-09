@@ -19,7 +19,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 ?>
-<div class="container">
+<div class="container shop-container">
 <div class="row">
 <div class="col-md-4"></div>
 <div class="col-md-8">

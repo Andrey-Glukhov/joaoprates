@@ -72,8 +72,8 @@ navigation
 
 nav.navbar {
     position: fixed;
-    top: auto;
-    left: auto;
+    top: 0;
+    left: 0;
     width: 100%;
     min-height: 40px;
     z-index: 110;
@@ -203,31 +203,6 @@ nav.navbar {
     flex-direction: column;
 }
 
-.r_d {
-    position: absolute;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 20px;
-    left: 0;
-    right: 0;
-    text-align: center;
-    width: 15px;
-    height: 15px;
-    border-radius: 15px;
-    background-color: #ffffff;
-    z-index: 2;
-    cursor: pointer;
-}
-
-.r_d.overlay_icon_research,
-.r_d.overlay_icon_demonstrators,
-.r_d.overlay_icon_exhibitions,
-.r_d.overlay_icon_visions,
-.r_d.overlay_icon_dialogues,
-.r_d.overlay_icon_updates {
-    background-color: transparent;
-}
-
 li.menu-item>a {
     text-align: center;
     font-family: 'Jost-Regular', serif;
@@ -306,6 +281,10 @@ a p.project_year:hover {
     margin: 20px 0 0 0;
     border-bottom: 2px solid #000000;
     padding-bottom: 20px;
+}
+
+.shop-container {
+    margin-top: 80px;
 }
 
 
