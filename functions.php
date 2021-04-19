@@ -142,6 +142,83 @@ add_theme_support('custom-header');
 add_theme_support('post-formats', array('aside', 'chat', 'gallery','link','image','quote','status','video'));
 add_theme_support('post-thumbnails');
 
+if ( ! function_exists( 'jp_cart_link' ) ) {
+	/**
+	 * Get  cart link including number of items and sum
+	 *
+	 */
+	function jp_cart_link() {
+		if ( ! jp_cart_available() ) {
+			return;
+		}
+		?>
 
+<li id="menu-item-28" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-28">
+    <a class="cart-contents" href="<?php echo esc_url( wc_get_cart_url() ); ?>">
+	<span class="menu-image-title">CART</span>
+	<?php if (WC()->cart->get_cart_contents_count() > 0) { ?>
+                <span class="count"> <?php echo wp_kses_data( sprintf( '%d', WC()->cart->get_cart_contents_count())  ); ?></span>
+    <?php } ?>
+	</a>
+</li>
+
+<?php
+	}
+}
+if ( ! function_exists( 'jp_cart_available' ) ) {
+	/**
+	 * Check if  Woo Cart instance is available
+	 */
+	function jp_cart_available() {
+		$woo = WC();
+		return $woo instanceof \WooCommerce && $woo->cart instanceof \WC_Cart;
+	}
+}
+// add menu cart fragment
+add_filter('woocommerce_add_to_cart_fragments', 'jp_add_refreshed_fragments');
+
+function jp_add_refreshed_fragments($fragments) {
+  /**
+	 * Get Html fragments to update cart icon
+	 */
+  ob_start(); ?>
+
+  <a class="cart-contents" href="<?php echo esc_url( wc_get_cart_url() ); ?>">
+  <span class="menu-image-title">CART</span>
+  <?php if (WC()->cart->get_cart_contents_count() > 0) { ?>
+			  <span class="count"> <?php echo wp_kses_data( sprintf( '%d', WC()->cart->get_cart_contents_count())  ); ?></span>
+  <?php } ?>
+  </a>
+
+  <?php $cart_part = ob_get_clean();
+  $new_fragments = [];
+  $new_fragments['a.cart-contents'] = $cart_part;
+  return $new_fragments;
+}
+
+
+add_filter( 'wp_nav_menu_items', 'child_theme_menu_items', 10, 2);
+
+function child_theme_menu_items($items, $args) {
+  /**
+	 * Insert  items to menu fragment 
+	 */
+    // get array of '<li> ... </li>' strings
+    preg_match_all('/<\s*?li\b[^>]*>(.*?)<\/li\b[^>]*>/s', $items, $items_array );
+    // error_log('--->1' . print_r($items,true));
+    // error_log('--->3' . print_r($items_array,true));
+     ob_start();
+     jp_cart_link();
+     $cart_part = ob_get_clean();
+    foreach( $items_array[0] as &$menu_item ) {
+		if (strpos($menu_item, 'menu-item-28')) {
+			$menu_item = $cart_part;
+		}
+	}
+	 // $items_array[0][] = $cart_part;
+     $items = implode('', $items_array[0]);
+    //  error_log('--->4' . print_r($items_array,true));
+    return $items;
+}
 
 ?>
