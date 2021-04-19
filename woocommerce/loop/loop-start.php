@@ -23,5 +23,5 @@ if ( ! defined( 'ABSPATH' ) ) {
 <div class="row">
 <div class="col-md-4"></div>
 <div class="col-md-8">
-<p>SHOP</p><p><?php $count_posts = wp_count_posts( 'product' ); echo $count_posts->publish; ?> ITEMS</p>
+<div class="shop_title_wrapper"><p>SHOP</p><p><?php $count_posts = wp_count_posts( 'product' ); echo $count_posts->publish; ?> ITEMS</p></div>
 <ul class=" products columns-<?php echo esc_attr( wc_get_loop_prop( 'columns' ) ); ?>">

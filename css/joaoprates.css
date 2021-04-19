@@ -443,6 +443,21 @@ a.button.product_type_variable.add_to_cart_button {
     display: none;
 }
 
+.shop_title_wrapper {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    border-bottom: 2px solid #000;
+}
+
+.shop_title_wrapper>p {
+    font-family: acumin-pro, sans-serif;
+    font-weight: 500;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    margin-bottom: 0;
+}
+
 
 /*--------------------------------------------------------------
 footer
