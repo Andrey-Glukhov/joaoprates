@@ -17,6 +17,8 @@ function jp_script_enqueue(){
   wp_enqueue_script( 'bootstrap-js', 'https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js', array('jquery'), null, true );
   
   wp_enqueue_script( 'jp-js', get_template_directory_uri() . '/js/joaoprates.js', array('jquery', 'bootstrap-js'), null, true );
+  wp_enqueue_script( 'showhide-js', get_template_directory_uri() . '/js/showhide.js', array('jquery', 'bootstrap-js'), null, true );
+
 
   
 }
@@ -63,9 +65,10 @@ function bv_show_product_image()  {
 		)
 	);
 	?>
-	<div class=" col-md-7 col-sm-10 col-11 <?php echo esc_attr( implode( ' ', array_map( 'sanitize_html_class', $wrapper_classes ) ) ); ?>" data-columns="<?php echo esc_attr( $columns ); ?>" style="opacity: 0; transition: opacity .25s ease-in-out;">
-		<figure class="woocommerce-product-gallery__wrapper">
-			<?php
+<div class=" col-md-7 col-sm-10 col-11 <?php echo esc_attr( implode( ' ', array_map( 'sanitize_html_class', $wrapper_classes ) ) ); ?>"
+    data-columns="<?php echo esc_attr( $columns ); ?>" style="opacity: 0; transition: opacity .25s ease-in-out;">
+    <figure class="woocommerce-product-gallery__wrapper">
+        <?php
 
 			$attachment_ids = $product->get_gallery_image_ids();
 			
@@ -85,10 +88,52 @@ function bv_show_product_image()  {
 	
 			//do_action( 'woocommerce_product_thumbnails' );
 			?>
-		</figure>
-	</div>
+    </figure>
+</div>
 <?php	
 }
+
+
+add_shortcode( 'showhide', 'showhide_shortcode' );
+function showhide_shortcode( $atts, $content = null ) {
+	// Variables
+	$post_id = get_the_id();
+	$word_count = number_format_i18n( sizeof( explode( ' ', strip_tags( $content ) ) ) );
+
+	// Extract ShortCode Attributes
+	$attributes = shortcode_atts( array(
+		'type' => 'pressrelease',
+		'more_text' => __( 'Show Press Release (%s More Words)', 'wp-showhide' ),
+		'less_text' => __( 'Hide Press Release (%s Less Words)', 'wp-showhide' ),
+		'hidden' => 'yes'
+	), $atts );
+
+	// More/Less Text
+	$more_text = sprintf( $attributes['more_text'], $word_count );
+	$less_text = sprintf( $attributes['less_text'], $word_count );
+  //$more_text = '>>>';
+  //$less_text = '<<<';
+	// Determine Whether To Show Or Hide Press Release
+	$hidden_class = 'sh-hide';
+	$hidden_css = 'display: none;';
+	$hidden_aria_expanded = 'false';
+	if( $attributes['hidden'] === 'no' ) {
+		$hidden_class = 'sh-show';
+		$hidden_css = 'display: block;';
+		$hidden_aria_expanded = 'true';
+		$tmp_text = $more_text;
+		$more_text = $less_text;
+		$less_text = $tmp_text;
+	}
+
+	// Format HTML Output
+	$output  = '<div id="' . $attributes['type'] . '-link-show' . $post_id . '" class="sh-link ' . $attributes['type'] . '-link ' . $hidden_class .'"><a href="#" onclick="showhide_show(\'' . esc_js( $attributes['type'] ) . '\', ' . $post_id . '); return false;" aria-expanded="' . $hidden_aria_expanded .'"><span id="' . $attributes['type'] . '-toggle-show' . $post_id . '">' . $more_text . '</span></a></div>';
+	$output .= '<div id="' . $attributes['type'] . '-content-' . $post_id . '" class="sh-content ' . $attributes['type'] . '-content ' . $hidden_class . '" style="' . $hidden_css . '">' . do_shortcode( $content ) ;
+	$output .= '<div id="' . $attributes['type'] . '-link-hide' . $post_id . '" class="sh-link ' . $attributes['type'] . '-link ' . $hidden_class .'"><a href="#" onclick="showhide_hide(\'' . esc_js( $attributes['type'] ) . '\', ' . $post_id . '); return false;" aria-expanded="' . $hidden_aria_expanded .'"><span id="' . $attributes['type'] . '-toggle-hide' . $post_id . '">' . $less_text . '</span></a></div></div>';
+	return $output;
+}
+
+
 
 
 add_action('init', 'jp_theme_setup');

@@ -47,7 +47,12 @@ button:active {
 
 .page-padding,
 .content-area {
-    padding-top: 100px;
+    padding-top: 140px;
+}
+
+.page-padding {
+    padding-left: 37px;
+    padding-right: 37px;
 }
 
 @font-face {
@@ -61,8 +66,18 @@ button:active {
 }
 
 @font-face {
+    font-family: 'Jost-Medium';
+    src: url("./Jost-Medium.woff2") format("woff2"), url("./Jost-Medium.woff") format("woff");
+}
+
+@font-face {
     font-family: 'Sitka';
     src: url("./Sitka.woff2") format("woff2"), url("./Sitka.woff") format("woff");
+}
+
+.wp-bootstrap-blocks-row {
+    margin-top: 10px;
+    margin-bottom: 50px;
 }
 
 
@@ -230,11 +245,79 @@ li.menu-item {
 
 
 /*--------------------------------------------------------------
+home
+--------------------------------------------------------------*/
+
+.wp-block-image>img {
+    width: 100%;
+    height: auto;
+}
+
+h2.home_header {
+    font-family: lust-sans, sans-serif;
+    font-size: 3.2rem;
+    line-height: 2.7rem;
+    font-weight: 700;
+}
+
+.space_between {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+p.sutro {
+    font-size: 0.9rem;
+    font-family: sutro, serif;
+    font-weight: 300;
+}
+
+p.sutro>a {
+    font-size: 0.9rem;
+    font-family: sutro, serif;
+    font-weight: 300;
+    color: #000;
+    text-decoration: underline;
+}
+
+.link_wrapper {
+    display: flex;
+    margin: 15px 0;
+    padding: 0 35px;
+    width: fit-content;
+    border-bottom: 1px solid #000;
+}
+
+a .link_wrapper>p {
+    margin-bottom: 0;
+    line-height: 0.8rem;
+    padding-bottom: 5px;
+    color: #000;
+}
+
+a .link_wrapper>p:hover {
+    color: #000;
+    text-decoration: none;
+}
+
+.link_wrapper.al_right {
+    margin-left: auto;
+}
+
+.link_wrapper>img {
+    height: 10px;
+    width: auto;
+    padding-left: 30px;
+}
+
+
+/*--------------------------------------------------------------
 projects
 --------------------------------------------------------------*/
 
 h1.project_header {
-    font-family: 'Cormorant Infant', serif;
+    font-family: lust-sans, sans-serif;
+    font-weight: 500;
     font-size: 3.2rem;
     border-bottom: 2px solid #000000;
     margin-bottom: 0;
@@ -243,7 +326,8 @@ h1.project_header {
 
 a p.project_header,
 a p.project_year {
-    font-family: 'Sitka', serif;
+    font-family: sutro, serif;
+    font-weight: 300;
     font-size: 1.1rem;
     text-transform: uppercase;
     color: #000000;
@@ -284,7 +368,28 @@ a p.project_year:hover {
 }
 
 .shop-container {
-    margin-top: 80px;
+    margin-top: 180px;
+}
+
+p.sitka {
+    font-family: 'Sitka', serif;
+    font-size: 1rem;
+}
+
+#st_about0-toggle-show35,
+#st_about0-toggle-show36,
+#st_about0-toggle-hide35,
+#st_about0-toggle-hide36 {
+    font-family: 'Sitka', serif;
+    font-size: 1rem;
+    color: #000;
+    text-decoration: underline;
+}
+
+.space-between {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 
@@ -293,7 +398,8 @@ about
 --------------------------------------------------------------*/
 
 h1.about_header {
-    font-family: 'Cormorant Infant', serif;
+    font-family: lust-sans, sans-serif;
+    font-weight: 500;
     font-size: 2.8rem;
     color: #000000;
     margin-bottom: 0;
@@ -301,7 +407,8 @@ h1.about_header {
 }
 
 .about_paragraf {
-    font-family: 'Jost-Light', serif;
+    font-family: acumin-pro, sans-serif;
+    font-weight: 300;
     font-size: 0.9rem;
     color: #000000;
     text-transform: uppercase;
@@ -320,10 +427,71 @@ h1.about_header {
 
 .sign>figcaption {
     text-align: right;
-    font-family: 'Jost-Light', serif;
+    font-family: acumin-pro, sans-serif;
+    font-weight: 300;
     font-size: 0.9rem;
     color: #000000;
     margin-right: 20px;
+}
+
+
+/*--------------------------------------------------------------
+shop
+--------------------------------------------------------------*/
+
+a.button.product_type_variable.add_to_cart_button {
+    display: none;
+}
+
+
+/*--------------------------------------------------------------
+footer
+--------------------------------------------------------------*/
+
+h2.footer-column-header {
+    font-family: 'Jost-Medium', serif;
+    font-size: 0.9rem;
+    color: #000;
+}
+
+.footer-wrap>.row>div>p {
+    font-family: 'Jost-Regular', serif;
+    font-size: 0.8rem;
+    color: #707070;
+}
+
+.footer_wrapper {
+    border: 1px solid black;
+    padding: 20px 10px;
+}
+
+#menu-footer-menu-support>li.menu-item,
+#menu-footer-menu-social>li.menu-item {
+    text-align: left;
+    padding-left: 0;
+    margin: 0;
+}
+
+#menu-footer-menu-support>li.menu-item>a,
+#menu-footer-menu-social>li.menu-item>a {
+    font-family: 'Jost-Regular', serif;
+    font-size: 0.8rem;
+    color: #707070;
+}
+
+.support_social_wrapper {
+    display: flex;
+    margin-left: auto;
+    width: fit-content;
+}
+
+.nav_menu_support,
+.nav_menu_social {
+    margin: 0 10px;
+}
+
+p.current_year {
+    margin-top: 10px;
 }
 
 
