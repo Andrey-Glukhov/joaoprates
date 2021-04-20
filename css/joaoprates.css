@@ -476,12 +476,12 @@ gallery
         
         .slick-slider .slick-arrow.slick-next {
             left: 100%;
-            background: url(../img/sl-arrow_r.svg) 0 0 / 100% no-repeat;
+            background: url(../img/arrow-right.png) 0 0 / 100% no-repeat;
         }
         
         .slick-slider .slick-arrow.slick-prev {
             right: 100%;
-            background: url(../img/sl-arrow_l.svg) 0 0 / 100% no-repeat;
+            background: url(../img/arrow-left.png) 0 0 / 100% no-repeat;
         }
         
         .slick-slider .slick-arrow {
@@ -493,6 +493,7 @@ gallery
             width: 30px;
             height: 60px;
             border: none;
+            cursor: pointer;
         }
         /*--------------------------------------------------------------
 shop
@@ -637,6 +638,13 @@ shop
             margin-left: auto;
         }
         /*--------------------------------------------------------------
+Cart
+--------------------------------------------------------------*/
+        
+        .shop_table .actions {
+            display: none;
+        }
+        /*--------------------------------------------------------------
 footer
 --------------------------------------------------------------*/
         
@@ -697,6 +705,10 @@ responsive
                 color: #000000;
                 margin-bottom: 0;
                 text-transform: uppercase;
+            }
+            .page-padding {
+                padding-left: 50px;
+                padding-right: 50px;
             }
         }
         /*sm*/

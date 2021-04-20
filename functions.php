@@ -261,5 +261,9 @@ function slider_code_func( $atts ){
 	<?php $result = ob_get_clean();
 	return $result;
 }
+// Widget
+include get_theme_file_path( '/include/layered-nav-select.php' );
+
+register_widget( 'JP_Widget_Layered_Select' );
 
 ?>
