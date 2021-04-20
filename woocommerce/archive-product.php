@@ -55,8 +55,7 @@ if ( woocommerce_product_loop() ) {
 	 * @hooked woocommerce_catalog_ordering - 30
 	 */
 	//do_action( 'woocommerce_before_shop_loop' );
-	if ( function_exists('dynamic_sidebar') )
-		dynamic_sidebar('shop-sidebar');
+
 	woocommerce_product_loop_start();
 
 	if ( wc_get_loop_prop( 'total' ) ) {
