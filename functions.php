@@ -2,6 +2,7 @@
 function jp_script_enqueue(){
 //css
 	wp_enqueue_style( 'jp-stylesheet', get_template_directory_uri() . '/css/joaoprates.css', array(), '1.0.0', 'all' );
+	wp_enqueue_style( 'slick-stylesheet', get_template_directory_uri() . '/css/slick.css', array(), '1.0.0', 'all' );
   //js
   // unregister jQuery
   wp_deregister_script('jquery-core');
@@ -15,6 +16,7 @@ function jp_script_enqueue(){
   wp_enqueue_script( 'jquery' );
   // Bootstrap
   wp_enqueue_script( 'bootstrap-js', 'https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js', array('jquery'), null, true );
+  wp_enqueue_script( 'slick-js', get_template_directory_uri() . '/js/slick.min.js', array(), null, true );
   
   wp_enqueue_script( 'jp-js', get_template_directory_uri() . '/js/joaoprates.js', array('jquery', 'bootstrap-js'), null, true );
   wp_enqueue_script( 'showhide-js', get_template_directory_uri() . '/js/showhide.js', array('jquery', 'bootstrap-js'), null, true );
@@ -26,6 +28,7 @@ add_action( 'wp_enqueue_scripts', 'jp_script_enqueue' );
 
 function jp_theme_setup(){
   add_theme_support('menus');
+  add_theme_support('widgets');
   register_nav_menu('primary_left', 'Primary Header Left');
   register_nav_menu('primary_right', 'Primary Header Right');
   register_nav_menu('footer_links_menu', 'Footer Links Area');
@@ -220,5 +223,18 @@ function child_theme_menu_items($items, $args) {
     //  error_log('--->4' . print_r($items_array,true));
     return $items;
 }
+
+//Sidebar
+
+function register_my_widgets(){
+	register_sidebar( array(
+		'name' => "Shop sidebar",
+		'id' => 'shop-sidebar',
+		'description' => 'Shop sidebar',
+		'before_title' => '<h2>',
+		'after_title' => '</h2>'
+	) );
+}
+add_action( 'widgets_init', 'register_my_widgets' )
 
 ?>
