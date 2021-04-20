@@ -235,6 +235,31 @@ function register_my_widgets(){
 		'after_title' => '</h2>'
 	) );
 }
-add_action( 'widgets_init', 'register_my_widgets' )
+add_action( 'widgets_init', 'register_my_widgets' );
+
+// Slider shortcode
+add_shortcode( 'jp_slider', 'slider_code_func' );
+
+function slider_code_func( $atts ){
+	$atts = shortcode_atts( array(
+		'post_id' => ''		
+	), $atts );
+	ob_start(); 
+	 $post_query = new WP_Query( array( 'page_id' => $atts['post_id'] ) );
+        if ($post_query -> have_posts() ) : while ( $post_query -> have_posts() ) : $post_query -> the_post(); ?>
+		<div class="row">
+			<div id="carouselExampleSlidesOnly" class="col-12">
+				<?php   if( have_rows('images_group') ): while( have_rows('images_group') ) : the_row(); ?>
+					<img src="<?php echo esc_url(get_sub_field('image')); ?>"/>
+				<?php endwhile; ?>
+				<?php endif; ?>
+			</div>
+        </div>	
+		<?php endwhile; ?>
+        <?php endif; ?>
+       
+	<?php $result = ob_get_clean();
+	return $result;
+}
 
 ?>

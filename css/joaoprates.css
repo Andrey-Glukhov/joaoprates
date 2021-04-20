@@ -475,12 +475,12 @@ gallery
         } */
         
         .slick-slider .slick-arrow.slick-next {
-            right: 0;
+            left: 100%;
             background: url(../img/sl-arrow_r.svg) 0 0 / 100% no-repeat;
         }
         
         .slick-slider .slick-arrow.slick-prev {
-            left: 0;
+            right: 100%;
             background: url(../img/sl-arrow_l.svg) 0 0 / 100% no-repeat;
         }
         
@@ -492,6 +492,7 @@ gallery
             font-size: 0;
             width: 30px;
             height: 60px;
+            border: none;
         }
         /*--------------------------------------------------------------
 shop
