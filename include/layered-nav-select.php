@@ -56,7 +56,7 @@ class JP_Widget_Layered_Select extends WC_Widget {
 	 * Init settings after post types are registered.
 	 */
 	public function init_settings() {
-		error_log('inslude-------');
+		
 		$attribute_array      = array();
 		$std_attribute        = '';
 		$attribute_taxonomies = wc_get_attribute_taxonomies();
@@ -82,16 +82,6 @@ class JP_Widget_Layered_Select extends WC_Widget {
 				'label'   => __( 'Attribute', 'woocommerce' ),
 				'options' => $attribute_array,
 			),
-			// 'display_type' => array(
-			// 	'type'    => 'select',
-			// 	'std'     => 'list',
-			// 	'label'   => __( 'Display type', 'woocommerce' ),
-			// 	'options' => array(
-			// 		'list'     => __( 'List', 'woocommerce' ),
-			// 		'dropdown' => __( 'Dropdown', 'woocommerce' ),
-			// 		'accordion' => __('Accordion', 'woocommerce'),
-			// 	),
-			// ),
 			'query_type'   => array(
 				'type'    => 'select',
 				'std'     => 'and',
@@ -114,7 +104,7 @@ class JP_Widget_Layered_Select extends WC_Widget {
 		if ( isset( $instance['attribute'] ) ) {
 			return wc_attribute_taxonomy_name( $instance['attribute'] );
 		}
-
+		
 		$attribute_taxonomies = wc_get_attribute_taxonomies();
 
 		if ( ! empty( $attribute_taxonomies ) ) {
@@ -163,15 +153,15 @@ class JP_Widget_Layered_Select extends WC_Widget {
 
 		$_chosen_attributes = WC_Query::get_layered_nav_chosen_attributes();
 		$taxonomy           = $this->get_instance_taxonomy( $instance );
+		error_log('tst1----' . print_r($taxonomy, true));
 		$query_type         = $this->get_instance_query_type( $instance );
-		//$display_type       = $this->get_instance_display_type( $instance );
-
+		
 		if ( ! taxonomy_exists( $taxonomy ) ) {
 			return;
 		}
 
 		$terms = get_terms( $taxonomy, array( 'hide_empty' => '1' ) );
-
+		error_log('tst2----' . print_r($terms, true));
 		if ( 0 === count( $terms ) ) {
 			return;
 		}
@@ -179,14 +169,8 @@ class JP_Widget_Layered_Select extends WC_Widget {
 		ob_start();
 
 		$this->widget_start( $args, $instance );
-
-		// if ( 'dropdown' === $display_type ) {
-		// 	wp_enqueue_script( 'selectWoo' );
-		// 	wp_enqueue_style( 'select2' );
-		// 	$found = $this->layered_nav_dropdown( $terms, $taxonomy, $query_type );
-		// } else {
-		// 	$found = $this->layered_nav_list( $terms, $taxonomy, $query_type );
-		// }
+		wp_enqueue_script( 'selectWoo' );
+		wp_enqueue_style( 'select2' );
 		$found = $this->layered_nav_select( $terms, $taxonomy, $query_type );
 		$this->widget_end( $args );
 
@@ -240,13 +224,16 @@ class JP_Widget_Layered_Select extends WC_Widget {
 	protected function layered_nav_select( $terms, $taxonomy, $query_type ) {
 		global $wp;
 		$found = false;
-
+		error_log('tst3--tax--' . print_r($taxonomy, true));
+		
 		if ( $taxonomy !== $this->get_current_taxonomy() ) {
 			$term_counts          = $this->get_filtered_term_product_counts( wp_list_pluck( $terms, 'term_id' ), $taxonomy, $query_type );
+			error_log('tst4--exp--' . print_r($term_counts, true));
 			$_chosen_attributes   = WC_Query::get_layered_nav_chosen_attributes();
 			$taxonomy_filter_name = wc_attribute_taxonomy_slug( $taxonomy );
+			
 			$taxonomy_label       = wc_attribute_label( $taxonomy );
-
+			error_log('tst5--exp--' . print_r($taxonomy_label, true));
 			/* translators: %s: taxonomy name */
 			$any_label      = apply_filters( 'woocommerce_layered_nav_any_label', sprintf( __( 'Any %s', 'woocommerce' ), $taxonomy_label ), $taxonomy_label, $taxonomy );
 			$multiple       = 'or' === $query_type;
@@ -258,18 +245,18 @@ class JP_Widget_Layered_Select extends WC_Widget {
 				$form_action = preg_replace( '%\/page/[0-9]+%', '', home_url( trailingslashit( $wp->request ) ) );
 			}
 
-			// echo '<form method="get" action="' . esc_url( $form_action ) . '" class="woocommerce-widget-layered-nav-dropdown">';
+			 echo '<form method="get" action="' . esc_url( $form_action ) . '" class="woocommerce-widget-layered-nav-dropdown">';
 			// echo '<select class="woocommerce-widget-layered-nav-dropdown dropdown_layered_nav_' . esc_attr( $taxonomy_filter_name ) . '"' . ( $multiple ? 'multiple="multiple"' : '' ) . '>';
 			// echo '<option value="">' . esc_html( $any_label ) . '</option>';
 			?>
 			<div class="select" id="select-1">
   				<div class="select__backdrop" data-select="backdrop"></div>
-  
-				<button type="button" class="select__trigger" data-select="trigger">
-					Выберите из списка
+				  <button   class="accordion-button collapsed" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+				<!-- <button type="button" class="select__trigger" data-select="trigger"> -->
+					<?php echo esc_attr( $taxonomy_label ); ?>
 				</button>
   
-				<div class="select__dropdown">
+				<div class="select__dropdown accordion-collapse collapse" id=collapseOne>
 					<ul class="select__items">
 			<?php foreach ( $terms as $term ) {
 
@@ -289,7 +276,7 @@ class JP_Widget_Layered_Select extends WC_Widget {
 					continue;
 				}
 
-				echo '<li class="select__item" data-select="item-' . esc_attr( urldecode( $term->slug ) ) . '" ' . selected( $option_is_set, true, false ) . '>' . esc_html( $term->name ) . '</li>';
+				echo '<li class="select__item dropdown_layered_nav_' . esc_attr( $taxonomy_filter_name ) .  '" data-select="' . esc_attr( urldecode( $term->slug ) ) . '" ' . selected( $option_is_set, true, false ) . '>' . esc_html( $term->name ) . '</li>';
 			}
 
 			echo '</ul>';
@@ -304,40 +291,40 @@ class JP_Widget_Layered_Select extends WC_Widget {
 
 			echo '<input type="hidden" name="filter_' . esc_attr( $taxonomy_filter_name ) . '" value="' . esc_attr( implode( ',', $current_values ) ) . '" />';
 			echo wc_query_string_form_fields( null, array( 'filter_' . $taxonomy_filter_name, 'query_type_' . $taxonomy_filter_name ), '', true ); // @codingStandardsIgnoreLine
-			//echo '</form>';
+			echo '</form>';
 
-			// wc_enqueue_js(
-			// 	"
-			// 	// Update value on change.
-			// 	jQuery( '.dropdown_layered_nav_" . esc_js( $taxonomy_filter_name ) . "' ).change( function() {
-			// 		var slug = jQuery( this ).val();
-			// 		jQuery( ':input[name=\"filter_" . esc_js( $taxonomy_filter_name ) . "\"]' ).val( slug );
+			wc_enqueue_js(
+				"
+				// Update value on change.
+				jQuery( '.dropdown_layered_nav_" . esc_js( $taxonomy_filter_name ) . "' ).click( function() {
+					var slug = jQuery( this ).data('select');
+					jQuery( ':input[name=\"filter_" . esc_js( $taxonomy_filter_name ) . "\"]' ).val( slug );
 
-			// 		// Submit form on change if standard dropdown.
-			// 		if ( ! jQuery( this ).attr( 'multiple' ) ) {
-			// 			jQuery( this ).closest( 'form' ).submit();
-			// 		}
-			// 	});
+					// Submit form on change if standard dropdown.
+					if ( ! jQuery( this ).attr( 'multiple' ) ) {
+						jQuery( this ).closest( 'form' ).submit();
+					}
+				});
 
-			// 	// Use Select2 enhancement if possible
-			// 	if ( jQuery().selectWoo ) {
-			// 		var wc_layered_nav_select = function() {
-			// 			jQuery( '.dropdown_layered_nav_" . esc_js( $taxonomy_filter_name ) . "' ).selectWoo( {
-			// 				placeholder: decodeURIComponent('" . rawurlencode( (string) wp_specialchars_decode( $any_label ) ) . "'),
-			// 				minimumResultsForSearch: 5,
-			// 				width: '100%',
-			// 				allowClear: " . ( $multiple ? 'false' : 'true' ) . ",
-			// 				language: {
-			// 					noResults: function() {
-			// 						return '" . esc_js( _x( 'No matches found', 'enhanced select', 'woocommerce' ) ) . "';
-			// 					}
-			// 				}
-			// 			} );
-			// 		};
-			// 		wc_layered_nav_select();
-			// 	}
-			// "
-			// );
+				// Use Select2 enhancement if possible
+				if ( jQuery().selectWoo ) {
+					var wc_layered_nav_select = function() {
+						jQuery( '.dropdown_layered_nav_" . esc_js( $taxonomy_filter_name ) . "' ).selectWoo( {
+							placeholder: decodeURIComponent('" . rawurlencode( (string) wp_specialchars_decode( $any_label ) ) . "'),
+							minimumResultsForSearch: 5,
+							width: '100%',
+							allowClear: " . ( $multiple ? 'false' : 'true' ) . ",
+							language: {
+								noResults: function() {
+									return '" . esc_js( _x( 'No matches found', 'enhanced select', 'woocommerce' ) ) . "';
+								}
+							}
+						} );
+					};
+					wc_layered_nav_select();
+				}
+			"
+			);
 		}
 
 		return $found;
