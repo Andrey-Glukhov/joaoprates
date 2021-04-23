@@ -741,6 +741,10 @@ shop
         .woocommerce button.button.alt:hover {
             color: #000;
         }
+        
+        .woocommerce-widget-layered-nav-list__item--chosen.chosen {
+            color: red;
+        }
         /*--------------------------------------------------------------
 Cart
 --------------------------------------------------------------*/
