@@ -237,6 +237,61 @@ function register_my_widgets(){
 		'after_title' => '</h2>'
 	) );
 }
-add_action( 'widgets_init', 'register_my_widgets' )
+add_action( 'widgets_init', 'register_my_widgets' );
+
+// Slider shortcode
+add_shortcode( 'jp_slider', 'slider_code_func' );
+
+function slider_code_func( $atts ){
+	$atts = shortcode_atts( array(
+		'post_id' => ''		
+	), $atts );
+	ob_start(); 
+	 $post_query = new WP_Query( array( 'page_id' => $atts['post_id'] ) );
+        if ($post_query -> have_posts() ) : while ( $post_query -> have_posts() ) : $post_query -> the_post(); ?>
+		<div class="row">
+			<div id="carouselExampleSlidesOnly" class="col-12">
+				<?php   if( have_rows('images_group') ): while( have_rows('images_group') ) : the_row(); ?>
+					<img src="<?php echo esc_url(get_sub_field('image')); ?>"/>
+				<?php endwhile; ?>
+				<?php endif; ?>
+			</div>
+        </div>	
+		<?php endwhile; ?>
+        <?php endif; ?>
+       
+	<?php $result = ob_get_clean();
+	return $result;
+}
+// Widget
+include get_theme_file_path( '/include/layered-nav-select.php' );
+
+register_widget( 'JP_Widget_Layered_Select' );
+
+// Add product thumbnail to checkout order review
+add_filter( 'woocommerce_cart_item_name', 'bv_image_on_checkout', 10, 3 );
+
+function bv_image_on_checkout( $name, $cart_item, $cart_item_key ) {  
+
+    /* Return if not checkout page */
+    if ( ! is_checkout() ) {
+        return $name;
+    }
+
+    /* Get product object */
+    $_product = apply_filters( 'woocommerce_cart_item_product', $cart_item['data'], $cart_item, $cart_item_key );
+
+    /* Get product thumbnail */
+    $thumbnail = $_product->get_image();
+
+    /* Add wrapper to image and add some css */
+    $image = '<div class="ts-product-image" style="width: 52px; height: 45px; display: inline-block; padding-right: 7px; vertical-align: middle;">'
+                . $thumbnail .
+            '</div>';
+
+    /* Prepend image to name and return it */
+    return $image . $name;
+
+}
 
 ?>

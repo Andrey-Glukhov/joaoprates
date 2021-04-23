@@ -1,4 +1,8 @@
 jQuery(function($) {
+
+    $('.woocommerce').on('change', 'input.qty', function() {
+        $("[name='update_cart']").trigger("click");
+    });
     $(window).on("load", function() {
         //$('.wp-block-jetpack-slideshow_button-next').css('top', '');
         // $('.wp-block-jetpack-slideshow_button-next').on('change', function(e) {
