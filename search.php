@@ -3,7 +3,7 @@
 
 <div class="container page-padding">
 
-    <div class="row justify-content-end">
+    <div class="row justify-content-senter">
         <div class="col-md-8 col-sm-12">
             <main id="main" class="site-main" role="main">
             <ul class="search_result_list">
@@ -30,7 +30,7 @@
                     echo'<img src="' . wc_placeholder_img_src() . '" />';
                     
                 }
-                echo '<a href="' . get_the_permalink() . '">' . get_the_title() . '</a></li>';
+                echo '<div class="search_link"><a href="' . get_the_permalink() . '">' . get_the_title() . '</a></div></li>';
             } ?>
             </ul>
             </main><!-- #main -->
