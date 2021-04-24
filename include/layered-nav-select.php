@@ -459,12 +459,12 @@ class JP_Widget_Layered_Select extends WC_Widget {
 		$taxonomy_filter_name = wc_attribute_taxonomy_slug( $taxonomy );
 			
 		$taxonomy_label       = wc_attribute_label( $taxonomy );
-		error_log('TAX----' . print_r($taxonomy, true));
-		error_log('tst--plu --'. print_r(wp_list_pluck( $terms, 'term_id' ),true));
-		error_log('tst--qt --'. print_r($query_type,true));
-		error_log('tst--termcount --'. print_r($term_counts,true));
-		error_log('tst--cho --'. print_r($_chosen_attributes,true));
-		error_log('tst--li --'. print_r($base_link,true));
+		// error_log('TAX----' . print_r($taxonomy, true));
+		// error_log('tst--plu --'. print_r(wp_list_pluck( $terms, 'term_id' ),true));
+		// error_log('tst--qt --'. print_r($query_type,true));
+		// error_log('tst--termcount --'. print_r($term_counts,true));
+		// error_log('tst--cho --'. print_r($_chosen_attributes,true));
+		// error_log('tst--li --'. print_r($base_link,true));
 		?>
 		<div class="select" id="select-1">
 			  <div class="select__backdrop" data-select="backdrop"></div>
@@ -482,9 +482,9 @@ class JP_Widget_Layered_Select extends WC_Widget {
 			$current_values = isset( $_chosen_attributes[ $taxonomy ]['terms'] ) ? $_chosen_attributes[ $taxonomy ]['terms'] : array();
 			$option_is_set  = in_array( $term->slug, $current_values, true );
 			$count          = isset( $term_counts[ $term->term_id ] ) ? $term_counts[ $term->term_id ] : 0;
-			error_log('tst--count --'. print_r($count,true));
-			error_log('tst--opt --'. print_r($option_is_set,true));
-			error_log('tst--term --'. print_r($term,true));
+			// error_log('tst--count --'. print_r($count,true));
+			// error_log('tst--opt --'. print_r($option_is_set,true));
+			// error_log('tst--term --'. print_r($term,true));
 			// Skip the term for the current archive.
 			if ( $this->get_current_term_id() === $term->term_id ) {
 				continue;
@@ -505,7 +505,7 @@ class JP_Widget_Layered_Select extends WC_Widget {
 			if ( ! in_array( $term->slug, $current_filter, true ) ) {
 				$current_filter[] = $term->slug;
 			}
-			error_log('tst--term --'. print_r($current_filter,true));
+			//error_log('tst--term --'. print_r($current_filter,true));
 			$link = remove_query_arg( $filter_name, $base_link );
 
 			// Add current filters to URL.
