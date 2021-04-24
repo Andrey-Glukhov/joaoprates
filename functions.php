@@ -285,7 +285,7 @@ function bv_image_on_checkout( $name, $cart_item, $cart_item_key ) {
     $thumbnail = $_product->get_image();
 
     /* Add wrapper to image and add some css */
-    $image = '<div class="ts-product-image" style="width: 52px; height: 45px; display: inline-block; padding-right: 7px; vertical-align: middle;">'
+    $image = '<div class="ts-product-image" style="width: 90px; height: auto; display: inline-block; padding-right: 7px; vertical-align: middle;">'
                 . $thumbnail .
             '</div>';
 

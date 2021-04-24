@@ -19,16 +19,23 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 ?>
-<div class="container shop-container">
-    <div class="row">
-        <div class="col-md-4">
-            <?php if ( function_exists('dynamic_sidebar') )
-		dynamic_sidebar('shop-sidebar');?>
+<div class="container page-padding">
+    <div class="row justify-content-end">
 
-        </div>
-        <div class="col-md-8">
+        <div class="col-8">
             <div class="shop_title_wrapper">
                 <p>SHOP</p>
                 <p><?php $count_posts = wp_count_posts( 'product' ); echo $count_posts->publish; ?> ITEMS</p>
             </div>
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="col-md-4 attr_col">
+            <div class="attr_wraper">
+            <?php if ( function_exists('dynamic_sidebar') )
+		dynamic_sidebar('shop-sidebar');?>
+        </div>
+        </div>
+        <div class="col-md-8">
             <ul class=" products columns-<?php echo esc_attr( wc_get_loop_prop( 'columns' ) ); ?>">
