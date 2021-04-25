@@ -246,9 +246,11 @@ function slider_code_func( $atts ){
 	$atts = shortcode_atts( array(
 		'post_id' => ''		
 	), $atts );
+	
 	ob_start(); 
-	 $post_query = new WP_Query( array( 'page_id' => $atts['post_id'] ) );
-        if ($post_query -> have_posts() ) : while ( $post_query -> have_posts() ) : $post_query -> the_post(); ?>
+	wp_reset_postdata();
+	 $post_query = new WP_Query( array( 'page_id' => $atts['post_id'] , 'post_type' => 'any'));
+	if ($post_query -> have_posts() ) : while ( $post_query -> have_posts() ) : $post_query -> the_post(); ?>
 		<div class="row">
 			<div id="carouselExampleSlidesOnly" class="col-12">
 				<?php   if( have_rows('images_group') ): while( have_rows('images_group') ) : the_row(); ?>
@@ -258,7 +260,8 @@ function slider_code_func( $atts ){
 			</div>
         </div>	
 		<?php endwhile; ?>
-        <?php endif; ?>
+        <?php endif; 
+		wp_reset_postdata(); ?>
        
 	<?php $result = ob_get_clean();
 	return $result;
@@ -336,7 +339,7 @@ function add_buttons_attr_dropdown($html, $args)  {
 	}
 
 	$buttons_html  = '';	
-
+	
 	if ( ! empty( $options ) ) {
 		if ( $product && taxonomy_exists( $attribute ) ) {
 			// Get terms if this is a taxonomy - ordered. We need the names too.

@@ -212,122 +212,7 @@ class JP_Widget_Layered_Select extends WC_Widget {
 		return absint( is_tax() ? get_queried_object()->slug : 0 );
 	}
 
-	/**
-	 * Show dropdown layered nav.
-	 *
-	 * @param  array  $terms Terms.
-	 * @param  string $taxonomy Taxonomy.
-	 * @param  string $query_type Query Type.
-	 * @return bool Will nav display?
-	 */
-	protected function layered_nav_select2( $terms, $taxonomy, $query_type ) {
-		global $wp;
-		$found = false;
-		
-		
-		if ( $taxonomy !== $this->get_current_taxonomy() ) {
-			$term_counts          = $this->get_filtered_term_product_counts( wp_list_pluck( $terms, 'term_id' ), $taxonomy, $query_type );
-			
-			$_chosen_attributes   = WC_Query::get_layered_nav_chosen_attributes();
-			$taxonomy_filter_name = wc_attribute_taxonomy_slug( $taxonomy );
-			
-			$taxonomy_label       = wc_attribute_label( $taxonomy );
-			
-			/* translators: %s: taxonomy name */
-			$any_label      = apply_filters( 'woocommerce_layered_nav_any_label', sprintf( __( 'Any %s', 'woocommerce' ), $taxonomy_label ), $taxonomy_label, $taxonomy );
-			$multiple       = 'or' === $query_type;
-			$current_values = isset( $_chosen_attributes[ $taxonomy ]['terms'] ) ? $_chosen_attributes[ $taxonomy ]['terms'] : array();
-
-			if ( '' === get_option( 'permalink_structure' ) ) {
-				$form_action = remove_query_arg( array( 'page', 'paged' ), add_query_arg( $wp->query_string, '', home_url( $wp->request ) ) );
-			} else {
-				$form_action = preg_replace( '%\/page/[0-9]+%', '', home_url( trailingslashit( $wp->request ) ) );
-			}
-
-			 echo '<form method="get" action="' . esc_url( $form_action ) . '" class="woocommerce-widget-layered-nav-dropdown">';
-			// echo '<select class="woocommerce-widget-layered-nav-dropdown dropdown_layered_nav_' . esc_attr( $taxonomy_filter_name ) . '"' . ( $multiple ? 'multiple="multiple"' : '' ) . '>';
-			// echo '<option value="">' . esc_html( $any_label ) . '</option>';
-			?>
-			<div class="select" id="select-1">
-  				<div class="select__backdrop" data-select="backdrop"></div>
-				  <button   class="accordion-button collapsed" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne_<?php echo esc_attr( $taxonomy_filter_name );?>">
-				<!-- <button type="button" class="select__trigger" data-select="trigger"> -->
-					<?php echo esc_attr( $taxonomy_label ); ?>
-				</button>
-  
-				<div class="select__dropdown accordion-collapse collapse" id=collapseOne_<?php echo esc_attr( $taxonomy_filter_name );?> >
-					<ul class="select__items">
-			<?php foreach ( $terms as $term ) {
-
-				// If on a term page, skip that term in widget list.
-				if ( $term->term_id === $this->get_current_term_id() ) {
-					continue;
-				}
-
-				// Get count based on current view.
-				$option_is_set = in_array( $term->slug, $current_values, true );
-				$count         = isset( $term_counts[ $term->term_id ] ) ? $term_counts[ $term->term_id ] : 0;
-				
-				// Only show options with count > 0.
-				if ( 0 < $count ) {
-					$found = true;
-				} elseif ( 0 === $count && ! $option_is_set ) {
-					continue;
-				}
-
-				echo '<li class="select__item dropdown_layered_nav_' . esc_attr( $taxonomy_filter_name ) .  '" data-select="' . esc_attr( urldecode( $term->slug ) ) . '" ' . selected( $option_is_set, true, false ) . '>' . esc_html( $term->name ) . '</li>';
-			}
-
-			echo '</ul>';
-
-			if ( $multiple ) {
-				echo '<button class="woocommerce-widget-layered-nav-dropdown__submit" type="submit" value="' . esc_attr__( 'Apply', 'woocommerce' ) . '">' . esc_html__( 'Apply', 'woocommerce' ) . '</button>';
-			}
-
-			if ( 'or' === $query_type ) {
-				echo '<input type="hidden" name="query_type_' . esc_attr( $taxonomy_filter_name ) . '" value="or" />';
-			}
-
-			echo '<input type="hidden" name="filter_' . esc_attr( $taxonomy_filter_name ) . '" value="' . esc_attr( implode( ',', $current_values ) ) . '" />';
-			echo wc_query_string_form_fields( null, array( 'filter_' . $taxonomy_filter_name, 'query_type_' . $taxonomy_filter_name ), '', true ); // @codingStandardsIgnoreLine
-			echo '</form>';
-
-			wc_enqueue_js(
-				"
-				// Update value on change.
-				jQuery( '.dropdown_layered_nav_" . esc_js( $taxonomy_filter_name ) . "' ).click( function() {
-					var slug = jQuery( this ).data('select');
-					jQuery( ':input[name=\"filter_" . esc_js( $taxonomy_filter_name ) . "\"]' ).val( slug );
-
-					// Submit form on change if standard dropdown.
-					if ( ! jQuery( this ).attr( 'multiple' ) ) {
-						jQuery( this ).closest( 'form' ).submit();
-					}
-				});
-
-				// Use Select2 enhancement if possible
-				if ( jQuery().selectWoo ) {
-					var wc_layered_nav_select = function() {
-						jQuery( '.dropdown_layered_nav_" . esc_js( $taxonomy_filter_name ) . "' ).selectWoo( {
-							placeholder: decodeURIComponent('" . rawurlencode( (string) wp_specialchars_decode( $any_label ) ) . "'),
-							minimumResultsForSearch: 5,
-							width: '100%',
-							allowClear: " . ( $multiple ? 'false' : 'true' ) . ",
-							language: {
-								noResults: function() {
-									return '" . esc_js( _x( 'No matches found', 'enhanced select', 'woocommerce' ) ) . "';
-								}
-							}
-						} );
-					};
-					wc_layered_nav_select();
-				}
-			"
-			);
-		}
-
-		return $found;
-	}
+	
 
 	/**
 	 * Count products within certain terms, taking the main WP query into consideration.
@@ -459,20 +344,17 @@ class JP_Widget_Layered_Select extends WC_Widget {
 		$taxonomy_filter_name = wc_attribute_taxonomy_slug( $taxonomy );
 			
 		$taxonomy_label       = wc_attribute_label( $taxonomy );
-		// error_log('TAX----' . print_r($taxonomy, true));
-		// error_log('tst--plu --'. print_r(wp_list_pluck( $terms, 'term_id' ),true));
-		// error_log('tst--qt --'. print_r($query_type,true));
-		// error_log('tst--termcount --'. print_r($term_counts,true));
-		// error_log('tst--cho --'. print_r($_chosen_attributes,true));
-		// error_log('tst--li --'. print_r($base_link,true));
 		?>
-		<div class="select" id="select-1">
-			  <div class="select__backdrop" data-select="backdrop"></div>
-			  <button   class="accordion-button collapsed" type="button" data-toggle="collapse" data-target="#collapseOne_<?php echo esc_attr( $taxonomy_filter_name );?>" aria-expanded="true" aria-controls="collapseOne_<?php echo esc_attr( $taxonomy_filter_name );?>">
-			<!-- <button type="button" class="select__trigger" data-select="trigger"> -->
-				<?php echo esc_attr( $taxonomy_label ); ?>
-			</button>
+		<div class="select">
 
+			  <div class="select_button_wrapper">
+				<button   class="accordion-button collapsed" type="button" data-toggle="collapse" data-target="#collapseOne_<?php echo esc_attr( $taxonomy_filter_name );?>" aria-expanded="true" aria-controls="collapseOne_<?php echo esc_attr( $taxonomy_filter_name );?>">
+				<!-- <button type="button" class="select__trigger" data-select="trigger"> -->
+					<?php echo esc_attr( $taxonomy_label ); ?>
+				</button>
+				<div class="select_dropdown_plus">+</div>
+				<div class="select_dropdown_minus not_present">-</div>
+			</div>
 			<div class="select__dropdown accordion-collapse collapse" id=collapseOne_<?php echo esc_attr( $taxonomy_filter_name );?>>
 				<ul class="select__items">
 		<?php
@@ -482,10 +364,7 @@ class JP_Widget_Layered_Select extends WC_Widget {
 			$current_values = isset( $_chosen_attributes[ $taxonomy ]['terms'] ) ? $_chosen_attributes[ $taxonomy ]['terms'] : array();
 			$option_is_set  = in_array( $term->slug, $current_values, true );
 			$count          = isset( $term_counts[ $term->term_id ] ) ? $term_counts[ $term->term_id ] : 0;
-			// error_log('tst--count --'. print_r($count,true));
-			// error_log('tst--opt --'. print_r($option_is_set,true));
-			// error_log('tst--term --'. print_r($term,true));
-			// Skip the term for the current archive.
+			
 			if ( $this->get_current_term_id() === $term->term_id ) {
 				continue;
 			}
@@ -505,7 +384,7 @@ class JP_Widget_Layered_Select extends WC_Widget {
 			if ( ! in_array( $term->slug, $current_filter, true ) ) {
 				$current_filter[] = $term->slug;
 			}
-			//error_log('tst--term --'. print_r($current_filter,true));
+			
 			$link = remove_query_arg( $filter_name, $base_link );
 
 			// Add current filters to URL.
