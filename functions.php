@@ -249,7 +249,7 @@ function slider_code_func( $atts ){
 	
 	ob_start(); 
 	wp_reset_postdata();
-	 $post_query = new WP_Query( array( 'page_id' => $atts['post_id'] , 'post_type' => 'any'));
+	 $post_query = new WP_Query( array( 'p' => $atts['post_id'] , 'post_type' => 'any'));
 	if ($post_query -> have_posts() ) : while ( $post_query -> have_posts() ) : $post_query -> the_post(); ?>
 		<div class="row">
 			<div id="carouselExampleSlidesOnly" class="col-12">
