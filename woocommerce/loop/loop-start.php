@@ -22,7 +22,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <div class="container page-padding">
     <div class="row justify-content-end">
 
-        <div class="col-8">
+        <div class="col-md-8 col-sm-12 col-12">
             <div class="shop_title_wrapper">
                 <p>SHOP</p>
                 
@@ -40,4 +40,4 @@ if ( ! defined( 'ABSPATH' ) ) {
         </div>
         </div>
         <div class="col-md-8">
-            <ul class=" products columns-<?php echo esc_attr( wc_get_loop_prop( 'columns' ) ); ?>">
+            <ul class="row products">

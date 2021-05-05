@@ -396,4 +396,8 @@ $per_page = isset( $per_page ) ? $per_page : wc_get_loop_prop( 'per_page' );
 		printf( _nx( 'Showing %1$d&ndash;%2$d of %3$d result', 'Showing %1$d&ndash;%2$d of %3$d ', $total, 'with first and last result', 'woocommerce' ), $first, $last, $total );
 	}
 }
+ 
+remove_action( 'woocommerce_after_shop_loop', 'woocommerce_pagination', 10 );
+add_action('woocommerce_after_shop_inside_loop', 'woocommerce_pagination', 10);
+
 ?>
