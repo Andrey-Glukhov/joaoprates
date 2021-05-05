@@ -20,6 +20,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 ?>
 </ul>
+<?php do_action( 'woocommerce_after_shop_inside_loop' ); ?>
 	</div>
 </div>
 </div>

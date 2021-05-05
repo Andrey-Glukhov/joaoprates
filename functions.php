@@ -370,5 +370,7 @@ function add_buttons_attr_dropdown($html, $args)  {
 
 }
  
+remove_action( 'woocommerce_after_shop_loop', 'woocommerce_pagination', 10 );
+add_action('woocommerce_after_shop_inside_loop', 'woocommerce_pagination', 10);
 
 ?>
