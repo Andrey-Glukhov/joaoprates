@@ -51,7 +51,39 @@ jQuery(function($) {
         //if ($(this).hasClass('collapse')) {
             $(this).siblings('.select_dropdown_plus').toggleClass('not_present');
             $(this).siblings('.select_dropdown_minus').toggleClass('not_present');
+            if (sessionStorage.getItem('woo_filter_fold')) {
+                var blockStr  = sessionStorage.getItem('woo_filter_fold');
+               
+                // $('.select__dropdown.accordion-collapse').each(function() {
+                //     if ($(this).hasClass('show')) {
+                //         blockStr += $(this).attr('id');
+                //     }
+                // });
+            } else {
+                blockStr ='';
+            }
+            if ($(this).siblings('.select_dropdown_minus').hasClass('not_present')) {
+                blockStr = blockStr.replace('#' + $(this).parent().siblings('.select__dropdown.accordion-collapse').attr('id'),'');
+            } else {
+                blockStr += '#' + $(this).parent().siblings('.select__dropdown.accordion-collapse').attr('id');
+            }
+            sessionStorage.setItem('woo_filter_fold',blockStr );
         //} 
     });
+    // select__dropdown accordion-collapse collapse show
+    //archive post-type-archive post-type-archive-product logged-in admin-bar no_jp_front_class theme-joaoprates woocommerce woocommerce-page woocommerce-js customize-support
+    if ($('.post-type-archive.post-type-archive-product').length && window.innerWidth > 767) {
+        if (sessionStorage.getItem('woo_filter_fold')) {
+            var blockIds = sessionStorage.getItem('woo_filter_fold').split('#');
+            for (var itm of blockIds ) {
+                if (itm ==='') continue;
+                $('#'+ itm).addClass('show');
+                $('#'+ itm).siblings('.select_button_wrapper').children('.accordion-button').removeClass('collapsed');
+                $('#'+ itm).siblings('.select_button_wrapper').children('.select_dropdown_plus').toggleClass('not_present');
+                $('#'+ itm).siblings('.select_button_wrapper').children('.select_dropdown_minus').toggleClass('not_present');
+
+            }
+        }
+    }
     
 });

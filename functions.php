@@ -369,6 +369,31 @@ function add_buttons_attr_dropdown($html, $args)  {
 	return $html;
 
 }
- 
+// 
+add_action('woocommerce_shoppage_result_count', 'woocommerce_shop_result_count',10);
+function woocommerce_shop_result_count() {
 
+	$total_pages   = isset( $total_pages ) ? $total_pages : wc_get_loop_prop( 'total_pages' );
+	$total   = isset( $total ) ? $total : wc_get_loop_prop( 'total' );
+$current = isset( $current ) ? $current : wc_get_loop_prop( 'current_page' );
+$base    = isset( $base ) ? $base : esc_url_raw( str_replace( 999999999, '%#%', remove_query_arg( 'add-to-cart', get_pagenum_link( 999999999, false ) ) ) );
+$format  = isset( $format ) ? $format : '';
+global $woocommerce_loop;
+error_log('per==='. print_r($woocommerce_loop,true));
+$per_page = isset( $per_page ) ? $per_page : wc_get_loop_prop( 'per_page' );
+	// phpcs:disable WordPress.Security
+	error_log('per==='. print_r($per_page,true));
+	error_log('pto==='. print_r($total,true));
+	if ( 1 === intval( $total ) ) {
+		_e( 'Showing the single result', 'woocommerce' );
+	} elseif ( $total <= $per_page || -1 === $per_page ) {
+		/* translators: %d: total results */
+		printf( _n( 'Showing all %d result', 'Showing all %d results', $total, 'woocommerce' ), $total );
+	} else {
+		$first = ( $per_page * $current ) - $per_page + 1;
+		$last  = min( $total, $per_page * $current );
+		/* translators: 1: first result 2: last result 3: total results */
+		printf( _nx( 'Showing %1$d&ndash;%2$d of %3$d result', 'Showing %1$d&ndash;%2$d of %3$d ', $total, 'with first and last result', 'woocommerce' ), $first, $last, $total );
+	}
+}
 ?>

@@ -338,6 +338,7 @@ class JP_Widget_Layered_Select extends WC_Widget {
 		//echo '<ul class="woocommerce-widget-layered-nav-list">';
 
 		$term_counts        = $this->get_filtered_term_product_counts( wp_list_pluck( $terms, 'term_id' ), $taxonomy, $query_type );
+		//error_log('terms---' . print_r($term_counts,true));
 		$_chosen_attributes = WC_Query::get_layered_nav_chosen_attributes();
 		$found              = false;
 		$base_link          = $this->get_current_page_url();

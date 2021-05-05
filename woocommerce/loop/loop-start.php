@@ -25,7 +25,9 @@ if ( ! defined( 'ABSPATH' ) ) {
         <div class="col-8">
             <div class="shop_title_wrapper">
                 <p>SHOP</p>
-                <p><?php $count_posts = wp_count_posts( 'product' ); echo $count_posts->publish; ?> ITEMS</p>
+                
+                <p><?php //$count_posts = wp_count_posts( 'product' ); echo $count_posts->publish;
+                do_action('woocommerce_shoppage_result_count') ?> ITEMS</p>
             </div>
         </div>
 
