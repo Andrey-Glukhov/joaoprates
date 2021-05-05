@@ -1108,7 +1108,7 @@ product
 
 
 
-.widget_layered_select.woocommerce-widget-layered-select 
+
 /*--------------------------------------------------------------
 footer
 --------------------------------------------------------------*/
@@ -1178,7 +1178,7 @@ p.current_year {
 }
 
 .search_container {
-  min-height: 60vh;
+  min-height: 80vh;
 }
 
 .searchform div {
@@ -1188,6 +1188,32 @@ p.current_year {
 
 .searchform input[type="text"] {
   flex: 1 40vw;
+  margin: 0 20px;
+  background-color: #f4eee7;
+  border-top: none;
+  border-right:none;
+  border-left: none;
+  border-bottom: 2px solid #000;
+  font-family: sutro, serif;
+  font-weight: 300;
+  font-size: 0.9rem;
+  color: #000000;
+}
+#searchsubmit{
+	background-color: #f4eee7;
+  border: 2px solid #000;
+	font-family: sutro, serif;
+    font-weight: 300;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    color: #000000;
+}
+.search_title_wrapper{
+	margin-top:80px;
+}
+.find_image{
+	width:100%;
+	height:auto;
 }
 
 .search_result_list img {
@@ -1207,12 +1233,15 @@ responsive
     text-transform: uppercase;
   }
   .page-padding {
-    padding-left: 50px;
-    padding-right: 50px;
+    padding-left: 15px;
+    padding-right: 15px;
   }
   .searchform input[type="text"] {
     width: inherit;
   }
+	h1.project_header{
+		font-size: 3rem;	
+	}
 }
 /*sm*/
 

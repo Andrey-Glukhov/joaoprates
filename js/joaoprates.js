@@ -23,23 +23,27 @@ jQuery(function($) {
     $(".attrib_selection").first().addClass('selected');
     $('select#size').val($(".attrib_selection").first().data('value')).trigger("change");
 
-    var $quantityArrowMinus = $(".woocommerce-variation-add-to-cart .var_quantity-arrow-minus");
-    var $quantityArrowPlus = $(".woocommerce-variation-add-to-cart .var_quantity-arrow-plus");
-    var $quantityNum = $(".woocommerce-variation-add-to-cart .quantity input[type=number]");
+    var $quantityArrowMinus = $(".add_quantity_wrapper .var_quantity-arrow-minus");
+    var $quantityArrowPlus = $(".add_quantity_wrapper .var_quantity-arrow-plus");
+    
  
     $quantityArrowMinus.click(quantityMinus);
     $quantityArrowPlus.click(quantityPlus);
  
     function quantityMinus(event) {
+     var $quantityNum = $(this).parent().find('.quantity input[type="number"]'); 
       if ($quantityNum.val() > 1) {
         $quantityNum.val(+$quantityNum.val() - 1);
       }
-      event.preventDefault();
+      //event.preventDefault();
+      event.stopProragation();
     }
  
     function quantityPlus(event) {
+      var $quantityNum = $(this).parent().find('.quantity input[type="number"]');
       $quantityNum.val(+$quantityNum.val() + 1);
       event.preventDefault();
+      //event.stopProragation();
     }
 
     $('.woocommerce.widget_layered_select .select_button_wrapper .accordion-button').on('click', function() {

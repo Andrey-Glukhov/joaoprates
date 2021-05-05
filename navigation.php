@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-md">
-<a class="navbar-brand" href="http://localhost:8888/JoaoPrates/wordpress/"><img src="http://localhost:8888/JoaoPrates/wordpress/wp-content/uploads/2021/04/Thick_line-03.png"/></a>
+<a class="navbar-brand" href="http://www.joaoprates.com/"><img src="http://www.joaoprates.com/wp-content/uploads/2021/04/Thick_line-03.png"/></a>
 <button class="navbar-toggler menu-btn" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
   <div class="navbar-toggler-icon animated-icon1"> <span></span><span></span><span></span> </div>
 </button>
