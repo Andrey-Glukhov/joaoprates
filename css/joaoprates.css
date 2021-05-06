@@ -218,8 +218,8 @@ nav.navbar {
 
 li.menu-item > a {
   text-align: center;
-  font-family: "Jost-Regular", serif;
-  font-weight: 400;
+  font-family: acumin-pro, sans-serif;
+  font-weight: 500;
   font-size: 0.8rem;
   color: #000;
 }
@@ -396,6 +396,12 @@ p.sitka {
   flex-direction: column;
   justify-content: space-between;
 }
+.projects_link{
+  text-decoration: none;
+}
+.projects_link:hover{
+  text-decoration: none;
+}
 /*--------------------------------------------------------------
 about
 --------------------------------------------------------------*/
@@ -520,14 +526,14 @@ gallery
 /*--------------------------------------------------------------
 shop
 --------------------------------------------------------------*/
-.woocommerce-pagination .page-numbers li a{
+.woocommerce-pagination .page-numbers li a {
   color: #000;
   font-family: acumin-pro, sans-serif;
   font-weight: 500;
   font-size: 0.9rem;
 }
-.woocommerce ul.products li.product{
-margin: 0;
+.woocommerce ul.products li.product {
+  margin: 0;
 }
 .woocommerce nav.woocommerce-pagination ul li span.current {
   color: #000;
@@ -539,8 +545,8 @@ margin: 0;
 }
 
 .woocommerce nav.woocommerce-pagination ul,
-.woocommerce nav.woocommerce-pagination ul li{
-border: none;
+.woocommerce nav.woocommerce-pagination ul li {
+  border: none;
 }
 a.button.product_type_variable.add_to_cart_button {
   display: none;
@@ -565,19 +571,19 @@ li.product .inner_products_wrapper {
   background-color: #fff;
   cursor: pointer;
 }
-li.product{
+li.product {
   padding: 10px !important;
 }
 
-li.product  a  img {
+li.product a img {
   padding: 10px;
 }
-.row.products{
-
+.row.products {
+  margin: 0 -10px !important;
 }
 
-li.product  a  h2.woocommerce-loop-product__title,
-li.product  a  span.price {
+li.product a h2.woocommerce-loop-product__title,
+li.product a span.price {
   padding: 0 10px !important;
   font-family: "Sitka", serif;
   font-size: 1rem !important;
@@ -804,9 +810,11 @@ b.presentation {
   color: #000;
   font-family: acumin-pro, sans-serif;
   font-weight: 500;
-  font-size: 1rem;
+  font-size: 0.9rem;
   text-transform: uppercase;
   border: 2px solid #000;
+  padding: 5px 15px;
+  line-height: 1.6rem;
 }
 
 .woocommerce button.button.alt:hover {
@@ -1001,6 +1009,8 @@ table.shop_table.woocommerce-checkout-review-order-table {
 
 .shop_table.woocommerce-checkout-review-order-table .cart_item {
   border-top: 2px solid #000;
+  padding: 5px 15px;
+  line-height: 1.6rem;
 }
 
 .woocommerce #payment #place_order,
@@ -1084,6 +1094,35 @@ table.shop_table.woocommerce-checkout-review-order-table {
   margin-top: 20px;
 }
 
+.empty-message-wraper {
+  min-height: 80vh;
+}
+.woocommerce-info {
+  border-top: 0;
+  background-color: #f4eee7;
+  font-family: sutro, serif;
+  font-weight: 300;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  color: #000;
+  text-align: center;
+  padding: 1em 2em;
+}
+.empty-message-wraper .return-to-shop {
+  text-align: center;
+}
+.woocommerce .return-to-shop a.button {
+  background: transparent;
+  font-family: acumin-pro, sans-serif;
+  font-weight: 500;
+  font-size: 0.9rem;
+  color: #000;
+  border: 2px solid #000;
+  text-transform: uppercase;
+  border-radius: 0;
+  padding: 5px 15px;
+  line-height: 1.6rem;
+}
 /*--------------------------------------------------------------
 product
 --------------------------------------------------------------*/
@@ -1146,13 +1185,15 @@ footer
 --------------------------------------------------------------*/
 
 h2.footer-column-header {
-  font-family: "Jost-Medium", serif;
+  font-family: acumin-pro, sans-serif;
+  font-weight: 500;
   font-size: 0.9rem;
   color: #000;
 }
 
 .footer-wrap > .row > div > p {
-  font-family: "Jost-Regular", serif;
+  font-family: acumin-pro, sans-serif;
+  font-weight: 500;
   font-size: 0.8rem;
   color: #707070;
 }
@@ -1172,7 +1213,8 @@ h2.footer-column-header {
 
 #menu-footer-menu-support > li.menu-item > a,
 #menu-footer-menu-social > li.menu-item > a {
-  font-family: "Jost-Regular", serif;
+  font-family: acumin-pro, sans-serif;
+  font-weight: 500;
   font-size: 0.8rem;
   color: #707070;
 }
@@ -1192,7 +1234,7 @@ p.current_year {
   margin-top: 10px;
 }
 /*--------------------------------------------------------------
-            search
+search
 --------------------------------------------------------------*/
 
 .search_result_list {
