@@ -27,7 +27,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                 <p>SHOP</p>
                 
                 <p><?php //$count_posts = wp_count_posts( 'product' ); echo $count_posts->publish;
-                do_action('woocommerce_shoppage_result_count') ?> ITEMS</p>
+                do_action('woocommerce_shoppage_result_count') ?></p>
             </div>
         </div>
 
