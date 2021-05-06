@@ -44,11 +44,13 @@ remove_action( 'woocommerce_before_main_content', 'woocommerce_output_content_wr
 remove_action( 'woocommerce_before_main_content', 'woocommerce_breadcrumb', 20 );
 remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_product_data_tabs', 10 );
 remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_related_products', 20 );
+add_action( 'woocommerce_after_single_product_summary', 'woocommerce_cross_sell_display', 40 );
+
 //remove_action( 'woocommerce_after_shop_loop', 'woocommerce_pagination', 10 );
 remove_action( 'woocommerce_after_main_content', 'woocommerce_output_content_wrapper_end', 10 );
 
-remove_action( 'woocommerce_before_single_product_summary', 'woocommerce_show_product_images', 20 );
-add_action( 'woocommerce_before_single_product_summary', 'bv_show_product_image', 20 );
+// remove_action( 'woocommerce_before_single_product_summary', 'woocommerce_show_product_images', 20 );
+// add_action( 'woocommerce_before_single_product_summary', 'bv_show_product_image', 20 );
 
 function bv_show_product_image()  {
 	
@@ -378,15 +380,15 @@ global $woocommerce_loop;
 $per_page = isset( $per_page ) ? $per_page : wc_get_loop_prop( 'per_page' );
 	// phpcs:disable WordPress.Security
 if ( 1 === intval( $total ) ) {
-		_e( 'Showing the single result', 'woocommerce' );
+		_e( 'the single item', 'woocommerce' );
 	} elseif ( $total <= $per_page || -1 === $per_page ) {
 		/* translators: %d: total results */
-		printf( _n( 'Showing all %d result', 'Showing all %d results', $total, 'woocommerce' ), $total );
+		printf( _n( 'all %d items', 'all %d items', $total, 'woocommerce' ), $total );
 	} else {
 		$first = ( $per_page * $current ) - $per_page + 1;
 		$last  = min( $total, $per_page * $current );
 		/* translators: 1: first result 2: last result 3: total results */
-		printf( _nx( 'Showing %1$d&ndash;%2$d of %3$d result', 'Showing %1$d&ndash;%2$d of %3$d ', $total, 'with first and last result', 'woocommerce' ), $first, $last, $total );
+		printf( _nx( '%1$d&ndash;%2$d of %3$d items', '%1$d&ndash;%2$d of %3$d items', $total, 'with first and last items', 'woocommerce' ), $first, $last, $total );
 	}
 }
  
