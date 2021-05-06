@@ -29,6 +29,7 @@ add_action( 'wp_enqueue_scripts', 'jp_script_enqueue' );
 function jp_theme_setup(){
   add_theme_support('menus');
   add_theme_support('widgets');
+ add_theme_support( 'wc-product-gallery-slider' );
   register_nav_menu('primary_left', 'Primary Header Left');
   register_nav_menu('primary_right', 'Primary Header Right');
   register_nav_menu('footer_links_menu', 'Footer Links Area');

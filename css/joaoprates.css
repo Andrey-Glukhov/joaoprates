@@ -1211,6 +1211,26 @@ product
 .woocommerce nav.woocommerce-pagination ul li a:focus{
   background: transparent;
 }
+.woocommerce-product-gallery__wrapper .woocommerce-product-gallery__image {
+  margin-left: 1px;
+}
+
+.flex-control-nav.flex-control-thumbs li {
+  display: block;
+  list-style-type: none;
+  margin-right: 1rem;
+  margin-bottom: 1rem;
+}
+.flex-control-nav.flex-control-thumbs {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  padding: 0;
+}
+
+.woocommerce-product-gallery .flex-viewport {
+  margin-bottom: 1.618em;
+}
 /*--------cart-------*/
 
 .shop_table .actions {
