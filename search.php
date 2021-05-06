@@ -23,7 +23,6 @@
                 $search->the_post();
                 echo '<li>';
                 $thumbnail_link = get_the_post_thumbnail_url(); 
-               // error_log('search1---' . print_r($post,true));
                 if ($thumbnail_link) {
                     echo'<img src="' . $thumbnail_link . '" />';
                 } else {

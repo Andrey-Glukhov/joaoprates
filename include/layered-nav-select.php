@@ -152,7 +152,6 @@ class JP_Widget_Layered_Select extends WC_Widget {
 
 		$_chosen_attributes = WC_Query::get_layered_nav_chosen_attributes();
 		$taxonomy           = $this->get_instance_taxonomy( $instance );
-		//error_log('tst1----' . print_r($taxonomy, true));
 		$query_type         = $this->get_instance_query_type( $instance );
 		
 		if ( ! taxonomy_exists( $taxonomy ) ) {
@@ -160,7 +159,6 @@ class JP_Widget_Layered_Select extends WC_Widget {
 		}
 
 		$terms = get_terms( $taxonomy, array( 'hide_empty' => '1' ) );
-		//error_log('tst2----' . print_r($terms, true));
 		if ( 0 === count( $terms ) ) {
 			return;
 		}
@@ -338,7 +336,6 @@ class JP_Widget_Layered_Select extends WC_Widget {
 		//echo '<ul class="woocommerce-widget-layered-nav-list">';
 
 		$term_counts        = $this->get_filtered_term_product_counts( wp_list_pluck( $terms, 'term_id' ), $taxonomy, $query_type );
-		//error_log('terms---' . print_r($term_counts,true));
 		$_chosen_attributes = WC_Query::get_layered_nav_chosen_attributes();
 		$found              = false;
 		$base_link          = $this->get_current_page_url();

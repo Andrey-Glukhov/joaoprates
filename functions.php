@@ -210,19 +210,15 @@ function child_theme_menu_items($items, $args) {
 	 */
     // get array of '<li> ... </li>' strings
     preg_match_all('/<\s*?li\b[^>]*>(.*?)<\/li\b[^>]*>/s', $items, $items_array );
-    // error_log('--->1' . print_r($items,true));
-    // error_log('--->3' . print_r($items_array,true));
-     ob_start();
-     jp_cart_link();
-     $cart_part = ob_get_clean();
+    ob_start();
+    jp_cart_link();
+    $cart_part = ob_get_clean();
     foreach( $items_array[0] as &$menu_item ) {
 		if (strpos($menu_item, 'menu-item-28')) {
 			$menu_item = $cart_part;
 		}
 	}
-	 // $items_array[0][] = $cart_part;
-     $items = implode('', $items_array[0]);
-    //  error_log('--->4' . print_r($items_array,true));
+	$items = implode('', $items_array[0]);
     return $items;
 }
 
@@ -379,12 +375,9 @@ $current = isset( $current ) ? $current : wc_get_loop_prop( 'current_page' );
 $base    = isset( $base ) ? $base : esc_url_raw( str_replace( 999999999, '%#%', remove_query_arg( 'add-to-cart', get_pagenum_link( 999999999, false ) ) ) );
 $format  = isset( $format ) ? $format : '';
 global $woocommerce_loop;
-error_log('per==='. print_r($woocommerce_loop,true));
 $per_page = isset( $per_page ) ? $per_page : wc_get_loop_prop( 'per_page' );
 	// phpcs:disable WordPress.Security
-	error_log('per==='. print_r($per_page,true));
-	error_log('pto==='. print_r($total,true));
-	if ( 1 === intval( $total ) ) {
+if ( 1 === intval( $total ) ) {
 		_e( 'Showing the single result', 'woocommerce' );
 	} elseif ( $total <= $per_page || -1 === $per_page ) {
 		/* translators: %d: total results */

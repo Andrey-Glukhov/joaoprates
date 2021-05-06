@@ -24,7 +24,6 @@
 
     <div class="row justify-content-center">
             <?php 
-            error_log('srch---' . var_export($_REQUEST['search'],true));
             if( isset( $_REQUEST['search'] ) && $_REQUEST['search'] != '' ){
                 $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
                 $args = array(
@@ -47,8 +46,7 @@
                         $search->the_post();
                         echo '<div class="col-md-4 col-sm-10 col-11">';
                         $thumbnail_link = get_the_post_thumbnail_url(); 
-                    // error_log('search1---' . print_r($post,true));
-                        if ($thumbnail_link) {
+                    if ($thumbnail_link) {
                             echo'<img class="find_image" src="' . $thumbnail_link . '" />';
                         } else {
                             echo'<img class="find_image" src="' . wc_placeholder_img_src() . '" />';
