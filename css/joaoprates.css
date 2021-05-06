@@ -520,14 +520,14 @@ gallery
 /*--------------------------------------------------------------
 shop
 --------------------------------------------------------------*/
-.woocommerce-pagination .page-numbers li a{
+.woocommerce-pagination .page-numbers li a {
   color: #000;
   font-family: acumin-pro, sans-serif;
   font-weight: 500;
   font-size: 0.9rem;
 }
-.woocommerce ul.products li.product{
-margin: 0;
+.woocommerce ul.products li.product {
+  margin: 0;
 }
 .woocommerce nav.woocommerce-pagination ul li span.current {
   color: #000;
@@ -539,8 +539,8 @@ margin: 0;
 }
 
 .woocommerce nav.woocommerce-pagination ul,
-.woocommerce nav.woocommerce-pagination ul li{
-border: none;
+.woocommerce nav.woocommerce-pagination ul li {
+  border: none;
 }
 a.button.product_type_variable.add_to_cart_button {
   display: none;
@@ -565,19 +565,18 @@ li.product .inner_products_wrapper {
   background-color: #fff;
   cursor: pointer;
 }
-li.product{
+li.product {
   padding: 10px !important;
 }
 
-li.product  a  img {
+li.product a img {
   padding: 10px;
 }
-.row.products{
-
+.row.products {
 }
 
-li.product  a  h2.woocommerce-loop-product__title,
-li.product  a  span.price {
+li.product a h2.woocommerce-loop-product__title,
+li.product a span.price {
   padding: 0 10px !important;
   font-family: "Sitka", serif;
   font-size: 1rem !important;
@@ -1135,6 +1134,26 @@ product
   margin-top: 10px;
 }
 
+.woocommerce-product-gallery__wrapper .woocommerce-product-gallery__image {
+  margin-left: 1px;
+}
+
+.flex-control-nav.flex-control-thumbs li {
+  display: block;
+  list-style-type: none;
+  margin-right: 1rem;
+  margin-bottom: 1rem;
+}
+.flex-control-nav.flex-control-thumbs {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  padding: 0;
+}
+
+.woocommerce-product-gallery .flex-viewport {
+  margin-bottom: 1.618em;
+}
 /*--------cart-------*/
 
 .shop_table .actions {
