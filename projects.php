@@ -26,7 +26,7 @@ get_header(); ?>
     ?>
     
         <div class="col-md-8 col-sm-12">
-        <a href="<?php the_permalink(); ?>"><div class="ptitle_wraper"><p class="project_header"><?php the_title(); ?></p><p class="project_year"><?php the_field('year'); ?></p></div></a> 
+        <a class="projects_link" href="<?php the_permalink(); ?>"><div class="ptitle_wraper"><p class="project_header"><?php the_title(); ?></p><p class="project_year"><?php the_field('year'); ?></p></div></a> 
         </div> 
    
         <?php endwhile; ?>
