@@ -44,15 +44,17 @@
         
                     <?php while ( $search->have_posts() ) {
                         $search->the_post();
-                        echo '<div class="col-md-4 col-sm-10 col-11">';
-                        $thumbnail_link = get_the_post_thumbnail_url(); 
-                    if ($thumbnail_link) {
-                            echo'<img class="find_image" src="' . $thumbnail_link . '" />';
+                        echo '<div class="col-md-4 col-sm-10 col-11 search_block">';
+                        $thumbnail_link = woocommerce_get_product_thumbnail();//get_the_post_thumbnail_url(); 
+                        echo '<div class="search_link"><a href="' . get_the_permalink() . '">';    
+                        if ($thumbnail_link) {
+                            //echo'<img  class="find_image" src="' . $thumbnail_link . '" />';
+                            echo $thumbnail_link;
                         } else {
                             echo'<img class="find_image" src="' . wc_placeholder_img_src() . '" />';
                             
                         }
-                        echo '<div class="search_link"><a href="' . get_the_permalink() . '">' . get_the_title() . '</a></div></div>';
+                        echo get_the_title() . '</a></div></div>';
                     } 
                 } else { ?>
                     <div class="col-12 search_title_wrapper">
