@@ -544,6 +544,33 @@ gallery
   text-transform: uppercase;
   text-decoration: underline;
 }
+.info-content p,
+.info-content p a,
+.info-content ol li,
+.info-content ol li a{
+  font-family: acumin-pro, sans-serif;
+  font-weight: 300;
+  font-size: 0.9rem;
+  color: #000000;
+}
+.info-content p a,
+.info-content ol li a{
+  text-decoration: underline;
+}
+.info-content h3{
+  font-family: acumin-pro, sans-serif;
+  font-weight: 500;
+  font-size: 0.9rem;
+  color: #000000;
+  text-transform: uppercase;
+}
+.info-content .wp-block-separator.is-style-wide{
+margin-top: 0.1rem;
+border-bottom: 2px solid #000;
+border-top: none;
+border-right:none;
+border-left:none;
+}
 /*--------------------------------------------------------------
 shop
 --------------------------------------------------------------*/
@@ -1357,7 +1384,7 @@ responsive
 
 @media only screen and (max-width: 576px) {
   h1.about_header {
-    font-family: "Cormorant Infant", serif;
+    font-family: lust-sans, sans-serif;
     font-size: 2.2rem;
     color: #000000;
     margin-bottom: 0;
