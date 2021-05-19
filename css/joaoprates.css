@@ -1353,6 +1353,32 @@ search
 .search_container {
   min-height: 80vh;
 }
+.search_block {
+  padding: 10px;
+}
+.search_link {
+  /* padding: 20px; */
+  background-color: #fff;
+}
+.search_link a {
+  color: #000;
+  text-decoration: none;
+ 
+}
+.search_link a img {
+  margin: 0 0 1rem;
+  padding: 10px;
+  width: 100%;
+  height: auto;
+}
+.search_link a:hover {
+  text-decoration: none;
+}
+.search_image {
+  /* overflow: hidden;
+  height: 100%;
+  max-height: 60vh; */
+}
 
 .searchform div {
   display: flex;
