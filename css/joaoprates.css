@@ -1183,7 +1183,22 @@ text-transform: uppercase;
 .single_variation_wrap .woocommerce-variation.single_variation{
 margin: 20px 0;
 }
-
+/*--------------------------------------------------------------
+account
+--------------------------------------------------------------*/
+.woocommerce-account .woocommerce-MyAccount-navigation{
+  width: 100%;
+}
+.woocommerce-account .woocommerce-MyAccount-content{
+  width: 100%;
+}
+.min-height{
+  min-height:90vh;
+}
+.woocommerce-account .woocommerce-MyAccount-navigation ul{
+  list-style-type: none;
+  padding: 0;
+}
 /*--------------------------------------------------------------
 product
 --------------------------------------------------------------*/

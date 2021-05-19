@@ -23,11 +23,14 @@ defined( 'ABSPATH' ) || exit;
  * @since 2.6.0
  */
 ?>
-<div class="page-padding">
-<?php do_action( 'woocommerce_account_navigation' ); ?>
-
-	<div class="woocommerce-MyAccount-content">
-		<?php
+<div class="container page-padding min-height">
+    <div class="row">
+        <div class="col-md-4 col-sm-12 col-12">
+            <?php do_action( 'woocommerce_account_navigation' ); ?>
+        </div>
+        <div class="col-md-8 col-sm-12 col-12">
+            <div class="woocommerce-MyAccount-content">
+                <?php
 			/**
 			 * My Account content.
 			 *
@@ -35,5 +38,8 @@ defined( 'ABSPATH' ) || exit;
 			 */
 			do_action( 'woocommerce_account_content' );
 		?>
-	</div>
+            </div>
+        </div>
+    </div>
+
 </div>
