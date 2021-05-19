@@ -57,10 +57,11 @@ do_action( 'woocommerce_before_add_to_cart_form' ); ?>
 										$found_str = $value;
 									}
 									if ($found) {
-										unset($matches[0][$found]);
+										//unset($matches[0][$found]);
+										$string = str_replace($found_str, '', $string,);
 									}
 								}
-								$string = str_replace($found_str, '', $string,);
+							
 								echo $string;
 								//error_log('--->>>' . print_r($matches,true));
 							?>
