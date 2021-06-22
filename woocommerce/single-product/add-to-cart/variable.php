@@ -70,7 +70,7 @@ do_action( 'woocommerce_before_add_to_cart_form' ); ?>
 					<tr>
 						<td class="label"></td>
 						<td class="value">
-							Description of 1 st
+							Epson paper print mounted on aluminum dibond, behind acrylic glass with aluminum frame
 						</td>
 					</tr>	
 				<?php endforeach; 
@@ -84,7 +84,7 @@ do_action( 'woocommerce_before_add_to_cart_form' ); ?>
 					<tr>
 						<td class="label"></td>
 						<td class="value">
-							Description of 2 nd
+							Kodak Professional Endura Premier Metallic Paper print and acid-free off-white passe-partout in cellophane wrap.
 						</td>
 					</tr>	
 				<?php } 

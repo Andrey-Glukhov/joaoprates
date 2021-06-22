@@ -245,6 +245,7 @@ li.menu-item {
   height: 1rem;
   width: 1rem;
   font-size: 0.7rem;
+  line-height: 0.9rem;
   background-color: #000;
   color: #fff;
   border-radius: 50%;
@@ -632,7 +633,7 @@ li.product a img {
 
 li.product a h2.woocommerce-loop-product__title,
 li.product a span.price {
-  padding: 0 10px !important;
+  padding: 0 10px 10px 10px !important;
   font-family: "Sitka", serif;
   font-size: 1rem !important;
   color: #000 !important;
@@ -1183,6 +1184,7 @@ text-transform: uppercase;
 .single_variation_wrap .woocommerce-variation.single_variation{
 margin: 20px 0;
 }
+
 /*--------------------------------------------------------------
 account
 --------------------------------------------------------------*/
@@ -1199,10 +1201,132 @@ account
   list-style-type: none;
   padding: 0;
 }
+.woocommerce-error{
+  border-top-color: transparent;
+  background-color: #f4eee7;
+  padding: 1em 2em 1em 2em;
+  color: #000;
+  font-family: acumin-pro, sans-serif;
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+.woocommerce-error strong{
+  font-weight: 500;
+  text-decoration: underline;
+}
+.woocommerce-error::before{
+  left: 0;
+  color: #000;
+}
+.woocommerce-MyAccount-navigation-link a{
+  color: #000;
+  font-family: acumin-pro, sans-serif;
+  font-weight: 500;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+}
+.woocommerce-MyAccount-navigation-link{
+  margin-bottom: 10px;
+  padding: 0 6px;;
+}
+.woocommerce-form-row label,
+.woocommerce-form-row em{
+  font-family: "Sitka", serif !important;
+  font-size: 1rem !important;
+  color: #000 !important;
+  font-weight: normal !important;
+}
+.woocommerce-Input,
+.woocommerce-MyAccount-content{
+  font-family: acumin-pro, sans-serif;
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+.woocommerce-MyAccount-content strong{
+  font-weight: 500;
+  text-decoration: underline;
+}
+.woocommerce-MyAccount-content a{
+  color:#000000;
+  text-decoration: underline;
+}
+.woocommerce-EditAccountForm fieldset{
+  margin-top: 60px;
+}
+.woocommerce-EditAccountForm legend{
+  color: #000;
+  font-family: acumin-pro, sans-serif;
+  font-weight: 500;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+}
+.woocommerce button.button{
+  background-color: #f4eee7 !important;
+  border-radius: 0 !important;
+  color: #000;
+  font-family: acumin-pro, sans-serif;
+  font-weight: 500;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  border: 2px solid #000;
+  padding: 5px 15px;
+  line-height: 1.6rem;
+  margin-top: 50px !important;
+}
+
+.woocommerce button.button:hover{
+  color: #000;
+}
+.woocommerce-MyAccount-content .woocommerce-message,
+.woocommerce-MyAccount-content .woocommerce-Message,
+.pm_wrapper{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.woocommerce-MyAccount-content .woocommerce-message .woocommerce-Button.button,
+.woocommerce-MyAccount-content .woocommerce-Message .woocommerce-Button.button,
+.pm_wrapper a.button{
+  background-color: #f4eee7 !important;
+  border-radius: 0 !important;
+  color: #000;
+  font-family: acumin-pro, sans-serif;
+  font-weight: 500;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  border: 2px solid #000;
+  padding: 5px 15px;
+  line-height: 1.6rem;
+  margin-top: 50px !important;
+  width: fit-content;
+}
+.pm_wrapper a.button:hover{
+color: #000000;
+}
+.pm_wrapper .woocommerce-Message.woocommerce-Message--info.woocommerce-info{
+margin-bottom: 0;
+}
+.woocommerce-Address .woocommerce-Address-title.title h3,
+.woocommerce-MyAccount-content form h3{
+text-transform: uppercase;
+font-size: 0.9rem;
+}
+.woocommerce-MyAccount-content .woocommerce-Address{
+  margin-top: 50px;
+}
+.woocommerce-MyAccount-content .woocommerce-address-fields label{
+  padding: 0;
+  font-family: "Sitka", serif;
+  font-size: 1rem !important;
+  color: #000 !important;
+  font-weight: normal !important;
+  line-height: 1.4rem;
+}
 /*--------------------------------------------------------------
 product
 --------------------------------------------------------------*/
 .variations .value #size,
+.variations .value #print-with-complete-finish,
 .variations .value .reset_variations {
   display: none;
 }
@@ -1239,15 +1363,18 @@ product
 .add_quantity_wrapper .var_quantity-arrow-minus,
 .add_quantity_wrapper .var_quantity-arrow-plus {
   cursor: pointer;
-  font-size: 16px;
-  padding: 0 7px;
+  font-size: 0.9rem;
+  line-height: 0.3rem;
+  padding: 10px 7px;
   width: 30px;
   box-sizing: border-box;
-  border-radius: 4px;
+  border-radius: 0px;
   outline: none;
+  background: transparent;
+  border: 2px solid #000000;
 }
 .woocommerce .single_add_to_cart_button.button {
-  margin-top: 10px;
+  margin-top: 20px !important;
 }
 .woocommerce nav.woocommerce-pagination ul li a:hover,
 .woocommerce nav.woocommerce-pagination ul li a:focus{
@@ -1272,6 +1399,9 @@ product
 
 .woocommerce-product-gallery .flex-viewport {
   margin-bottom: 1.618em;
+}
+.woocommerce-notices-wrapper .woocommerce-message {
+display: none !important;
 }
 /*--------cart-------*/
 

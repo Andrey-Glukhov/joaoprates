@@ -18,10 +18,10 @@ jQuery(function($) {
         var tagValue = $(this).data('value');
         $(".attrib_selection").removeClass('selected');
         $(this).addClass('selected');
-        $('select#size').val(tagValue).trigger("change");
+        $('select#print-with-complete-finish').val(tagValue).trigger("change");
     })
     $(".attrib_selection").first().addClass('selected');
-    $('select#size').val($(".attrib_selection").first().data('value')).trigger("change");
+    $('select#print-with-complete-finish').val($(".attrib_selection").first().data('value')).trigger("change");
 
     var $quantityArrowMinus = $(".add_quantity_wrapper .var_quantity-arrow-minus");
     var $quantityArrowPlus = $(".add_quantity_wrapper .var_quantity-arrow-plus");
