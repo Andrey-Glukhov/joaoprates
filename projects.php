@@ -4,7 +4,7 @@
 */
 get_header(); ?>
 
-<div class="container page-padding">
+<div class="container-fluid page-padding">
 
     <div class="row justify-content-end">
         <div class="col-md-8 col-sm-12">
@@ -26,16 +26,13 @@ get_header(); ?>
     ?>
     
         <div class="col-md-8 col-sm-12">
-        <a class="projects_link" href="<?php the_permalink(); ?>"><div class="ptitle_wraper"><p class="project_header"><?php the_title(); ?></p><p class="project_year"><?php the_field('year'); ?></p></div></a> 
+        <a class="projects_link" href="<?php the_permalink(); ?>"><div class="ptitle_wraper"><p class="project_header"><?php the_title(); ?></p></div></a> 
         </div> 
    
         <?php endwhile; ?>
         <?php endif; ?>
     </div> 
     <div class="row justify-content-end">
-    <div class="col-md-8 col-sm-12">
-        <p class="events_link">EXHIBITIONS AND EVENTS</p>
-    </div>
     <div class="col-md-8 col-sm-12">
         <p class="shop_link"><a href="http://localhost:8888/JoaoPrates/wordpress/shop/">Shop the collection</a></p>
     </div>

@@ -48,8 +48,8 @@ button:active {
 }
 
 .page-padding {
-  padding-left: 37px;
-  padding-right: 37px;
+  padding-left: 80px;
+  padding-right: 80px;
 }
 
 @font-face {
@@ -75,10 +75,10 @@ button:active {
   src: url("./Sitka.woff2") format("woff2"), url("./Sitka.woff") format("woff");
 }
 
-.wp-bootstrap-blocks-row {
+/*.wp-bootstrap-blocks-row {
   margin-top: 10px;
   margin-bottom: 50px;
-}
+}*/
 /*--------------------------------------------------------------
 navigation
 --------------------------------------------------------------*/
@@ -92,10 +92,17 @@ nav.navbar {
   z-index: 110;
   padding-top: 0;
   background-color: #f4eee7;
+  padding-bottom: 0;
+  padding-right: 80px;
+  padding-left: 15px;
 }
-
+.navbar-brand{
+padding-top:10px;
+padding-bottom:0;
+margin-right: 15px;
+}
 .navbar > .navbar-brand > img {
-  width: 75px;
+  width: 50px;
   height: auto;
 }
 
@@ -225,7 +232,7 @@ li.menu-item > a {
 }
 
 li.menu-item {
-  margin: 10px 0;
+  margin: 35px 0 15px 0;
   text-align: center;
   padding: 0 20px;
 }
@@ -264,7 +271,7 @@ home
 h2.home_header {
   font-family: lust-sans, sans-serif;
   font-size: 3.2rem;
-  line-height: 2.7rem;
+  line-height: 3.1rem;
   font-weight: 700;
 }
 
@@ -287,6 +294,9 @@ p.sutro > a {
   color: #000;
   text-decoration: underline;
 }
+.link_wrapper.end{
+  margin: 15px 0 15px auto;
+}
 
 .link_wrapper {
   display: flex;
@@ -302,8 +312,16 @@ a .link_wrapper > p {
   padding-bottom: 5px;
   color: #000;
 }
+.link_wrapper > p {
+  margin-bottom: 0;
+  line-height: 0.8rem;
+  padding-bottom: 5px;
+  color: #000;
+}
 
-a .link_wrapper > p:hover {
+a .link_wrapper > p:hover,
+a .link_wrapper:hover,
+a:hover{
   color: #000;
   text-decoration: none;
 }
@@ -328,6 +346,7 @@ h1.project_header {
   border-bottom: 2px solid #000000;
   margin-bottom: 0;
   color: #000000;
+  padding-bottom: 50px;
 }
 
 a p.project_header,
@@ -380,6 +399,10 @@ a p.project_year:hover {
 p.sitka {
   font-family: "Sitka", serif;
   font-size: 1rem;
+}
+
+p.shop_link{
+  margin: 20px 0 0 0;
 }
 
 #st_about0-toggle-show35,
@@ -1583,6 +1606,26 @@ responsive
     padding: 10px;
     min-width: 110px;
   } */
+  .big_screen_space{
+    display: none;
+  }
+  .link_wrapper {
+    margin: 15px 0 15px auto;
+}
+
+.navbar.navbar-expand-md{
+  border-bottom:2px solid #000000;
+  }
+  .navbar-collapse{
+    border-bottom: none;
+  }
+  nav.navbar{
+    padding-left: 15px;
+    padding-right: 15px;
+    }
+ .navbar-brand{
+padding-bottom:15px;
+ }
 }
 /*sm*/
 
@@ -1599,16 +1642,48 @@ responsive
     padding: 10px;
     min-width: 110px;
   } */
+  .big_screen_space{
+    display: none;
+  }
+  .link_wrapper {
+    margin: 15px 0 15px auto;
+}
+
+.navbar.navbar-expand-md{
+border-bottom:2px solid #000000;
+}
+.navbar-collapse{
+  border-bottom: none;
+}
+nav.navbar{
+padding-left: 15px;
+padding-right: 15px;
+}
+.navbar-brand{
+  padding-bottom:15px;
+   }
 }
 /*md*/
 
 @media screen and (min-width: 768px) and (max-width: 992px) {
-
+  .link_wrapper {
+    padding: 0 22px;
+  }
+  .small_screen_space{
+    display: none;
+  }
 }
 /*lg*/
 
 @media screen and (min-width: 992px) {
+  .small_screen_space{
+    display: none;
+  }
 }
 
 @media screen and (min-width: 1200px) {
+  /*font-size: calc(15px + (24 - 5) * ((100vw - 300px) / (1600 - 300)));*/
+  .small_screen_space{
+    display: none;
+  }
 }

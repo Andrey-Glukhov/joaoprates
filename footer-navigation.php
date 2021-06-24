@@ -7,8 +7,7 @@
                 2585 SL The Hague, the Netherlands<br>
                 +31 6 8103 2216<br>
                 VAT number: NL687121061B01<br>
-                KvK number: 50227548 (Chamber of Commerce number)<br>
-                Please contact us for an appointment or other queries.
+                KvK number: 50227548
             </p>
         </div>
         <div class="col-md-4">

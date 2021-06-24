@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-<div class="container page-padding">
+<div class="container-fluid page-padding">
 <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
         <?php the_content(); ?>
         <?php endwhile; ?>
