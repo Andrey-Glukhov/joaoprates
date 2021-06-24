@@ -304,6 +304,7 @@ p.sutro > a {
   padding: 0 35px;
   width: fit-content;
   border-bottom: 1px solid #000;
+  cursor: pointer;
 }
 
 a .link_wrapper > p {
@@ -530,12 +531,14 @@ gallery
         } */
 
 .slick-slider .slick-arrow.slick-next {
-  left: 100%;
+  /* left: 100%; */
+  right: 30px;
   background: url(../img/arrow-right.png) 0 0 / 100% no-repeat;
 }
 
 .slick-slider .slick-arrow.slick-prev {
-  right: 100%;
+  /* right: 100%; */
+  left: 30px;
   background: url(../img/arrow-left.png) 0 0 / 100% no-repeat;
 }
 
@@ -550,6 +553,36 @@ gallery
   border: none;
   cursor: pointer;
 }
+.project_popup {
+  /* display: none; */
+  height: 0px; 
+  overflow-y: hidden;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 100vw;
+  /* height: 90vh; */
+  transform: translate(-50%, -50%);
+  z-index: 120;
+  background-color: #fff;
+
+ }
+ .project_popup.show_me {
+   height: 100vh;
+   overflow: inherit;
+   padding: 50px 0;
+ }
+.close_icon {
+  position: absolute;
+  top: 50px;
+  right: 10px;
+  width: 30px;
+  height: 30px;
+  background-image: url(../img/times-circle-regular.svg);
+  background-size: cover;
+  cursor: pointer;
+  z-index: 125;
+ }
 /*--------------info--------------*/
 
 .info_paragraf {

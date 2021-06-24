@@ -3,17 +3,6 @@ jQuery(function($) {
     $('.woocommerce').on('change', 'input.qty', function() {
         $("[name='update_cart']").trigger("click");
     });
-    $(window).on("load", function() {
-      
-        $('#carouselExampleSlidesOnly').slick({
-            slidesToShow: 1,
-            slidesToScroll: 1,
-            autoplay: false,
-            autoplaySpeed: 2000,
-        }).on('setPosition', function(event, slick) {
-        
-        });
-    });
     $(".attrib_selection").on('click', function () {
         var tagValue = $(this).data('value');
         $(".attrib_selection").removeClass('selected');
@@ -29,36 +18,13 @@ jQuery(function($) {
  
     $quantityArrowMinus.click(quantityMinus);
     $quantityArrowPlus.click(quantityPlus);
- 
-    function quantityMinus(event) {
-     var $quantityNum = $(this).parent().find('.quantity input[type="number"]'); 
-      if ($quantityNum.val() > 1) {
-        $quantityNum.val(+$quantityNum.val() - 1);
-      }
-      //event.preventDefault();
-      event.stopProragation();
-    }
- 
-    function quantityPlus(event) {
-      var $quantityNum = $(this).parent().find('.quantity input[type="number"]');
-      $quantityNum.val(+$quantityNum.val() + 1);
-      event.preventDefault();
-      //event.stopProragation();
-    }
+
 
     $('.woocommerce.widget_layered_select .select_button_wrapper .accordion-button').on('click', function() {
-        
-        //if ($(this).hasClass('collapse')) {
             $(this).siblings('.select_dropdown_plus').toggleClass('not_present');
             $(this).siblings('.select_dropdown_minus').toggleClass('not_present');
             if (sessionStorage.getItem('woo_filter_fold')) {
                 var blockStr  = sessionStorage.getItem('woo_filter_fold');
-               
-                // $('.select__dropdown.accordion-collapse').each(function() {
-                //     if ($(this).hasClass('show')) {
-                //         blockStr += $(this).attr('id');
-                //     }
-                // });
             } else {
                 blockStr ='';
             }
@@ -68,10 +34,8 @@ jQuery(function($) {
                 blockStr += '#' + $(this).parent().siblings('.select__dropdown.accordion-collapse').attr('id');
             }
             sessionStorage.setItem('woo_filter_fold',blockStr );
-        //} 
     });
-    // select__dropdown accordion-collapse collapse show
-    //archive post-type-archive post-type-archive-product logged-in admin-bar no_jp_front_class theme-joaoprates woocommerce woocommerce-page woocommerce-js customize-support
+   
     if ($('.post-type-archive.post-type-archive-product').length && window.innerWidth > 767) {
         if (sessionStorage.getItem('woo_filter_fold')) {
             var blockIds = sessionStorage.getItem('woo_filter_fold').split('#');
@@ -85,5 +49,39 @@ jQuery(function($) {
             }
         }
     }
+
+    if ($('body.single-project').length) {
+        $('.link_wrapper').on('click', function() {
+            $('.project_popup').addClass('show_me');
+        });
+        $('.close_icon').on('click', function() {
+            $('.project_popup').removeClass('show_me');
+        });
+    }
     
 });
+$(window).on("load", function() {
+      
+    $('#carouselExampleSlidesOnly').slick({
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        autoplay: false,
+        autoplaySpeed: 2000,
+    }).on('setPosition', function(event, slick) {
+    
+    });
+});
+
+function quantityMinus(event) {
+    var $quantityNum = $(this).parent().find('.quantity input[type="number"]'); 
+     if ($quantityNum.val() > 1) {
+       $quantityNum.val(+$quantityNum.val() - 1);
+     }
+     event.preventDefault();
+   }
+
+function quantityPlus(event) {
+    var $quantityNum = $(this).parent().find('.quantity input[type="number"]');
+    $quantityNum.val(+$quantityNum.val() + 1);
+    event.preventDefault();
+}
