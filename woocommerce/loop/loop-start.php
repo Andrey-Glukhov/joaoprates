@@ -32,12 +32,14 @@ if ( ! defined( 'ABSPATH' ) ) {
         </div>
 
     </div>
-    <div class="row">
+    <div class="row content_row">
         <div class="col-md-4 attr_col">
+            <div class="attr_form_button"></div>
+            <div class="attr_form_label">Filters</div>
             <div class="attr_wraper">
-            <?php if ( function_exists('dynamic_sidebar') )
-		dynamic_sidebar('shop-sidebar');?>
+                <?php if ( function_exists('dynamic_sidebar') )
+                dynamic_sidebar('shop-sidebar');?>
+            </div>
         </div>
-        </div>
-        <div class="col-md-8">
+        <div class="col-md-8 product_wrapper">
             <ul class="row products">
