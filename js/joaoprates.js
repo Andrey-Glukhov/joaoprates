@@ -49,6 +49,10 @@ jQuery(function($) {
             }
         }
     }
+    
+    $('.attr_form_button').on('click', function() {
+        $('.attr_col').toggleClass('show_me');
+    });
 
     if ($('body.single-project').length) {
         $('.link_wrapper').on('click', function() {
