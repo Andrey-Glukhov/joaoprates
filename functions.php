@@ -255,8 +255,8 @@ function slider_code_func( $atts ){
 	 $post_query = new WP_Query( array( 'p' => $atts['post_id'] , 'post_type' => 'any'));
 	if ($post_query -> have_posts() ) : while ( $post_query -> have_posts() ) : $post_query -> the_post(); ?>
 		<div class="project_popup">
-		<div class="close_icon"></div>
-			<div class="row">
+		<div class="close_icon_wrapper"><h4><?php the_title(); ?></h4><div class="close_icon"></div></div>
+			<div class="row  d-flex align-items-center" style="height:100%;">
 				<div id="carouselExampleSlidesOnly" class="col-12">
 					<?php   if( have_rows('images_group') ): while( have_rows('images_group') ) : the_row(); ?>
 						<img data-lazy="<?php echo esc_url(get_sub_field('image')); ?>"/>
