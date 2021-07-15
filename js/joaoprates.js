@@ -50,9 +50,27 @@ jQuery(function($) {
         }
     }
     
-    $('.attr_form_button').on('click', function() {
-        $('.attr_col').toggleClass('show_me');
-    });
+    // $('.attr_form_button').on('click', function() {
+    //     $('.attr_col').addClass('change_filter');
+    // });
+    // $('.attr_form_button_close').on('click', function() {
+    //     $('.attr_col').removeClass('change_filter');
+    // });
+    $('.attr_form_button').on('click', function() {    
+        if( $('.attr_col').hasClass('hide')) {
+        $('.attr_col').slideUp(0,function(){
+            $('.attr_col').removeClass('hide')
+                 .slideDown(800);
+          });   
+    }  else {   
+
+    $('.attr_col').slideUp(800,function(){
+        $('.attr_col').addClass('hide')
+             .slideDown(0);
+      });
+    }
+});     
+    
 
     if ($('body.single-project').length) {
         $('.link_wrapper').on('click', function() {

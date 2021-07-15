@@ -87,7 +87,7 @@ nav.navbar {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
+  width: 100vw;
   min-height: 40px;
   z-index: 110;
   padding-top: 0;
@@ -1266,6 +1266,10 @@ table.shop_table.woocommerce-checkout-review-order-table {
   margin: 20px 0;
 }
 
+.attr_form_label {
+  display: none;
+}
+
 /*--------------------------------------------------------------
 account
 --------------------------------------------------------------*/
@@ -1637,40 +1641,51 @@ responsive
   }
   .attr_col {
     position: absolute;
-    transform: translateX(-100%);
-    transition: transform 0.5s;
+    margin-top: 30px;
     z-index: 6;
-    background-color: #f4eee7;
+    background-color: #f4eee7; 
+      }
+  .attr_col.hide {
+    position: absolute !important;
+    top: -9999px !important;
+    left: -9999px !important;
   }
-  .attr_col.show_me {
-    transform: translateX(0);
-  }
+
+  
   .attr_form_button {
     position: absolute;
-    top: 0;
-    right: -30px;
+    top: -10px ;
+    left: 10px;
     width: 30px;
     height: 30px;
-    background-image: url(../img/arrow-right.png);
     background-size: contain;
     background-repeat: no-repeat;
     background-position-y: center;
   }
-  .attr_form_label {
-    position: absolute;
-    top: 0;
-    left: 100%;
-    height: 30px;
-    transform: translateX(30px);
+  .attr_col.hide + .attr_form_button {
+    background-image: url(../img/angle-down-solid.svg);
+    
   }
-  .attr_form_label .show_me {
+  .attr_form_label {
+    display: block;
+    position: absolute;
+    top: -5px;
+    left: 50px;
+    height: 30px;
+   }
+  
+  .change_filter .attr_wraper {
+    height: inherit;
+
+    
+  }
+  .change_filter .attr_form_label  {
     display: none;
   }
-  .attr_col.show_me .attr_form_button {
-    right: 0;
-    background-image: url(../img/arrow-left.png);
+  .attr_col +.attr_form_button {
+   background-image: url(../img/angle-up-solid.svg);
   }
-  .product_wrapper {
+    .product_wrapper {
     margin-top: 30px;
   }
 }
@@ -1728,30 +1743,7 @@ responsive
     padding-bottom: 15px;
   }
 
-  /* .attr_col {
-    position: absolute;
-    transform: translateX(-100%);
-    transition: transform 0.5s;
-    z-index: 6;
-  }
-  .attr_col.show_me{
-    transform: translateX(0);
-    
-  }
-  .attr_form_button {
-    position: absolute;
-    top: 0;
-    right: -30px;
-    width: 30px;
-    height: 30px;
-    background-image: url(../img/arrow-right.png);
-    background-size: contain;
-    background-repeat: no-repeat;
-  }
-  .attr_col.show_me .attr_form_button  {
-    right: 0;
-    background-image: url(../img/arrow-left.png);
-  } */
+  
 }
 /*sm*/
 
