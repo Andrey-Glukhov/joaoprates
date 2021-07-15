@@ -1723,7 +1723,11 @@ responsive
   .attr_form_button {
     position: absolute;
     left: 10px;
+    top: -10px;
     width: 30px;
+    height: 30px;
+    background-size: contain;
+    background-repeat: no-repeat;
   }
   .attr_col.hide + .attr_form_button {
     background-image: url(../img/angle-down-solid.svg);
@@ -1735,16 +1739,16 @@ responsive
     top: -5px;
     left: 50px;
     height: 30px;
-   }
+  }
   
-  .change_filter .attr_wraper {
+  /* .change_filter .attr_wraper {
     height: inherit;
 
     
   }
   .change_filter .attr_form_label  {
     display: none;
-  }
+  } */
   .attr_col +.attr_form_button {
    background-image: url(../img/angle-up-solid.svg);
   }
