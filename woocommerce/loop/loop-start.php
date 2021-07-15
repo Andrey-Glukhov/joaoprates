@@ -19,7 +19,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 ?>
-<div class="container page-padding">
+<div class="container-fluid page-padding">
     <div class="row justify-content-end">
 
         <div class="col-md-8 col-sm-12 col-12">

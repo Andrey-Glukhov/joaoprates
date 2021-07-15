@@ -31,7 +31,7 @@ if ( post_password_required() ) {
 	return;
 }
 ?>
-<div class="container page-padding" id="product-<?php the_ID(); ?>" <?php wc_product_class( '', $product ); ?>>
+<div class="container-fluid page-padding" id="product-<?php the_ID(); ?>" <?php wc_product_class( '', $product ); ?>>
 <div class="row single_product_row justify-content-md-between">
 
 

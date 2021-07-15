@@ -269,10 +269,11 @@ home
 }
 
 h2.home_header {
-  font-family: lust-sans, sans-serif;
+  font-family: mencken-std-head, sans-serif;
+  font-weight: 700;
+  font-style: normal;
   font-size: 3.2rem;
   line-height: 3.1rem;
-  font-weight: 700;
 }
 
 .space_between {
@@ -282,15 +283,18 @@ h2.home_header {
 }
 
 p.sutro {
-  font-size: 0.9rem;
-  font-family: sutro, serif;
+  font-size: 0.95rem;
+  font-family: calluna, serif;
+  font-weight: 300;
+  font-style: normal;
   font-weight: 300;
 }
 
 p.sutro > a {
-  font-size: 0.9rem;
-  font-family: sutro, serif;
+  font-size: 0.95rem;
+  font-family: calluna, serif;
   font-weight: 300;
+  font-style: normal;
   color: #000;
   text-decoration: underline;
 }
@@ -341,8 +345,9 @@ projects
 --------------------------------------------------------------*/
 
 h1.project_header {
-  font-family: lust-sans, sans-serif;
-  font-weight: 500;
+  font-family: mencken-std-head, sans-serif;
+  font-weight: 700;
+  font-style: normal;
   font-size: 3.2rem;
   border-bottom: 2px solid #000000;
   margin-bottom: 0;
@@ -352,8 +357,8 @@ h1.project_header {
 
 a p.project_header,
 a p.project_year {
-  font-family: sutro, serif;
-  font-weight: 300;
+  font-family: acumin-pro, sans-serif;
+  font-weight: 500;
   font-size: 1.1rem;
   text-transform: uppercase;
   color: #000000;
@@ -378,8 +383,8 @@ a p.project_year:hover {
 }
 
 .shop_link > a {
-  font-family: "Sitka", serif;
-  font-size: 1.1rem;
+  font-family: acumin-pro, sans-serif;
+  font-size: 1rem;
   padding-bottom: 20px;
   color: rgb(129, 129, 129);
   text-decoration: underline;
@@ -457,8 +462,9 @@ about
 --------------------------------------------------------------*/
 
 h1.about_header {
-  font-family: lust-sans, sans-serif;
-  font-weight: 500;
+  font-family: mencken-std-head, sans-serif;
+  font-weight: 700;
+  font-style: normal;
   font-size: 3.2rem;
   margin-bottom: 0;
   text-transform: uppercase;
@@ -630,7 +636,7 @@ gallery
 .info-content p a,
 .info-content ol li,
 .info-content ol li a {
-  font-family: acumin-pro, sans-serif;
+  font-family: calluna, serif;
   font-weight: 300;
   font-size: 0.9rem;
   color: #000000;
@@ -698,7 +704,7 @@ a.button.product_type_variable.add_to_cart_button {
 }
 
 li.product .inner_products_wrapper {
-  background-color: #fff;
+  background-color: #eae1d4;
   cursor: pointer;
 }
 li.product {
@@ -715,11 +721,14 @@ li.product a img {
 li.product a h2.woocommerce-loop-product__title,
 li.product a span.price {
   padding: 0 10px 10px 10px !important;
-  font-family: "Sitka", serif;
+  font-family: acumin-pro, sans-serif;
   font-size: 1rem !important;
   color: #000 !important;
+  text-transform: uppercase;
 }
-
+.attr_form_label{
+  display: none;
+}
 .shop_table.shop_table_responsive.cart.woocommerce-cart-form__contents
   > thead
   > tr
@@ -916,11 +925,11 @@ b.presentation {
 
 .summary.entry-summary > .product_title.entry-title {
   color: #000 !important;
-  font-family: acumin-pro, sans-serif;
+  font-family: mencken-std-head, sans-serif;
   font-weight: 500;
-  font-size: 1.2rem;
+  font-size: 2rem;
   text-transform: uppercase;
-  margin-bottom: 30px;
+  /*margin-bottom: 30px;*/
 }
 
 .single-summary > .price {
@@ -1257,7 +1266,7 @@ table.shop_table.woocommerce-checkout-review-order-table {
   line-height: 1.6rem;
 }
 .variations_form.cart {
-  margin-top: 35px;
+ /* margin-top: 35px;*/
 }
 .variations_form.cart .variations .label label {
   text-transform: uppercase;
@@ -1411,10 +1420,35 @@ product
 .variations .value .reset_variations {
   display: none;
 }
-
-.variations .value .attrib_selection {
+td.value{
+  font-size: 0.95rem;
+  font-family: calluna, serif;
+  font-style: normal;
+  font-weight: 300;
+}
+td.value .attrib_selection{
+  font-family: acumin-pro, sans-serif;
+  font-weight: 500;
+  font-size: 0.9rem;
+  color: #000;
+  cursor: pointer;
+}
+.complete_finish{
+  font-family: acumin-pro, sans-serif;
+  font-weight: 500;
+  font-size: 0.9rem;
+  color: #000;
+  margin-bottom: 3px;
+}
+td.value.partout{
+  font-family: acumin-pro, sans-serif;
+  font-weight: 500;
+  font-size: 0.9rem;
+  color: #000;
+}
+.variations .value.with_finish .attrib_selection {
   display: inline-block;
-  padding: 0 20px;
+  padding: 0 20px 0 20px;
   cursor: pointer;
 }
 .variations .value .attrib_selection.selected {
@@ -1422,6 +1456,17 @@ product
 }
 .variations .label label {
   margin: 0;
+}
+.with_finish label{
+  font-family: acumin-pro, sans-serif;
+  font-weight: 500;
+  font-size: 0.9rem;
+  color: #000;
+}
+
+table.variations{
+  border-collapse: separate !important;
+  border-spacing: 0 1rem;
 }
 
 .woocommerce-variation-add-to-cart
@@ -1464,6 +1509,9 @@ product
 .woocommerce-product-gallery__wrapper .woocommerce-product-gallery__image {
   margin-left: 1px;
 }
+.partout .attrib_selection{
+text-transform: uppercase;
+}
 
 .flex-control-nav.flex-control-thumbs li {
   display: block;
@@ -1497,8 +1545,9 @@ footer
 h2.footer-column-header {
   font-family: acumin-pro, sans-serif;
   font-weight: 500;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   color: #000;
+  text-transform: uppercase;
 }
 
 .footer-wrap > .row > div > p {
@@ -1509,7 +1558,7 @@ h2.footer-column-header {
 }
 
 .footer_wrapper {
-  border: 1px solid black;
+  border: 2px solid black;
   padding: 20px 10px;
   margin-top: 30px;
 }
@@ -1542,6 +1591,20 @@ h2.footer-column-header {
 
 p.current_year {
   margin-top: 10px;
+}
+.social-icons{
+  font-size: 1.1rem;
+  justify-content: flex-end;
+  display: flex;
+}
+
+.social-icons a{
+color: #707070;
+padding-right: 5px;
+}
+.social-icons>i{
+  color: #707070;
+  padding-right: 5px;
 }
 /*--------------------------------------------------------------
 search
@@ -1631,6 +1694,11 @@ search
 /*--------------------------------------------------------------
 responsive
 --------------------------------------------------------------*/
+@media only screen and (min-width: 577px) {
+  .display-small-screen{
+    display: none !important;
+  }
+}
 @media only screen and (max-width: 768px) {
   .content_row {
     position: relative;
@@ -1648,7 +1716,7 @@ responsive
   .attr_form_button {
     position: absolute;
     top: 0;
-    right: -30px;
+    right: -45px;
     width: 30px;
     height: 30px;
     background-image: url(../img/arrow-right.png);
@@ -1673,13 +1741,21 @@ responsive
   .product_wrapper {
     margin-top: 30px;
   }
+  li.product a img{
+    padding:25px 25px 15px 25px;
+  }
+  li.product a h2.woocommerce-loop-product__title, li.product a span.price{
+    padding: 0 25px 25px 25px !important;
+  }
 }
 
 /*xs*/
 
 @media only screen and (max-width: 576px) {
   h1.about_header {
-    font-family: lust-sans, sans-serif;
+    font-family: mencken-std-head, sans-serif;
+    font-weight: 700;
+    font-style: normal;
     font-size: 2.2rem;
     color: #000000;
     margin-bottom: 0;
@@ -1694,6 +1770,15 @@ responsive
   }
   h1.project_header {
     font-size: 3rem;
+  }
+  .display-big-screen{
+    display: none;
+  }
+  .support_social_wrapper {
+    margin: 0;
+  }
+  .nav_menu_support{
+    margin: 0;
   }
   /* li.widget.woocommerce.widget_layered_select.woocommerce-widget-layered-select{
     display: inline-block;
@@ -1726,6 +1811,9 @@ responsive
   }
   .navbar-brand {
     padding-bottom: 15px;
+  }
+  .nav_menu_social{
+    display:none;
   }
 
   /* .attr_col {
@@ -1787,6 +1875,9 @@ responsive
   }
   .navbar-brand {
     padding-bottom: 15px;
+  }
+  .nav_menu_social{
+    display:none;
   }
 }
 /*md*/
