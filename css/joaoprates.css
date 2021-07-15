@@ -754,7 +754,7 @@ li.product a span.price {
 .woocommerce-cart-form__cart-item.cart_item > .product-name > a,
 td.product-price > .woocommerce-Price-amount.amount > bdi,
 td.product-subtotal > .woocommerce-Price-amount.amount > bdi {
-  font-family: "Sitka", serif;
+  font-family: calluna, serif;
   font-size: 1rem !important;
   color: #000 !important;
   font-weight: normal;
@@ -763,7 +763,7 @@ td.product-subtotal > .woocommerce-Price-amount.amount > bdi {
 .quantity > input.input-text.qty.text {
   border: none !important;
   background: transparent;
-  font-family: "Sitka", serif;
+  font-family: calluna, serif;
   font-size: 1rem !important;
   color: #000 !important;
   font-weight: normal;
@@ -1113,7 +1113,6 @@ h3#order_review_heading {
   display: none !important;
 }
 
-.woocommerce table.shop_table th.product-name,
 .woocommerce table.shop_table th.product-total {
   display: none;
 }
