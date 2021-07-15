@@ -35,8 +35,10 @@ do_action( 'woocommerce_before_add_to_cart_form' ); ?>
 			<tbody>
 				<?php foreach ( $attributes as $attribute_name => $options ) : ?>
 					<tr>
-						<td class="label"><label for="<?php echo esc_attr( sanitize_title( $attribute_name ) ); ?>"><?php echo wc_attribute_label( $attribute_name ); // WPCS: XSS ok. ?></label></td>
-						<td class="value">
+						<!--<td class="label"></td>-->
+						<td colspan="2" style="width:100%" class="value with_finish">
+						<p class="complete_finish">PRINT WITH COMPLETE FINISH</p>
+						<label for="<?php echo esc_attr( sanitize_title( $attribute_name ) ); ?>"><?php echo wc_attribute_label( $attribute_name ); // WPCS: XSS ok. ?></label>
 							<?php
 							ob_start();
 								wc_dropdown_variation_attribute_options(
@@ -70,14 +72,14 @@ do_action( 'woocommerce_before_add_to_cart_form' ); ?>
 					<tr>
 						<td class="label"></td>
 						<td class="value">
-							Epson paper print mounted on aluminum dibond, behind acrylic glass with aluminum frame
+							Epson paper print mounted on aluminum dibond, behind acrylic glass with aluminum frame<br><br>
 						</td>
 					</tr>	
 				<?php endforeach; 
 				if ($found) { ?>
 					<tr>
 						<td class="label"><label for="<?php echo esc_attr( sanitize_title( $attribute_name ) ); ?>"></label></td>
-						<td class="value">
+						<td class="value partout">
 							<?php echo $found_str; ?>
 						</td>
 					</tr>	
