@@ -1808,10 +1808,40 @@ search
   height: 40px;
   cursor: pointer;
 }
-.payment_box.payment_method_stripe{
+/* .payment_box.payment_method_stripe{
   position: absolute !important;
   left: 0;
+} */
+.woocommerce-checkout #payment div.payment_box {
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  text-align: center;
+  /* background: transparent !important; */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
 }
+
+#stripe-payment-data {
+  padding: 10px;
+  /* background-color: #b62126; */
+  /* color: #ffffff; */
+  position: relative;
+  /* width: 60%; */
+}
+
+.woocommerce-checkout #payment div.payment_box::before {
+  display: none;
+}
+
+#stripe-payment-data > p {
+  display: none;
+}
+
 .about_paypal,
 .payment_method_paypal img,
 .payment_method_stripe img,

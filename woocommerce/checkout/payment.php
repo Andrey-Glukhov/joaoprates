@@ -26,14 +26,30 @@ if ( ! is_ajax() ) {
 		<ul class="wc_payment_methods payment_methods methods">
 			<?php
 			if ( ! empty( $available_gateways ) ) {
-				foreach ( $available_gateways as $gateway ) {
-					wc_get_template( 'checkout/payment-method.php', array( 'gateway' => $gateway ) );
-				}
-			} else {
+				foreach ( $available_gateways as $gateway ) {?>
+					<li class="wc_payment_method payment_method_<?php echo esc_attr( $gateway->id ); ?>">
+						<input id="payment_method_<?php echo esc_attr( $gateway->id ); ?>" type="radio" class="input-radio" name="payment_method" value="<?php echo esc_attr( $gateway->id ); ?>" <?php checked( $gateway->chosen, true ); ?> data-order_button_text="<?php echo esc_attr( $gateway->order_button_text ); ?>" />
+
+						<label for="payment_method_<?php echo esc_attr( $gateway->id ); ?>">
+							<?php echo $gateway->get_title(); /* phpcs:ignore WordPress.XSS.EscapeOutput.OutputNotEscaped */ ?> <?php echo $gateway->get_icon(); /* phpcs:ignore WordPress.XSS.EscapeOutput.OutputNotEscaped */ ?>
+						</label>
+					</li>
+					<?php 
+				}?> 
+		</ul>			
+					<?php foreach ( $available_gateways as $gateway ) {
+						if ( $gateway->has_fields() || $gateway->get_description() ) : ?>
+							<div class="payment_box payment_method_<?php echo esc_attr( $gateway->id ); ?>" <?php if ( ! $gateway->chosen ) : /* phpcs:ignore Squiz.ControlStructures.ControlSignature.NewlineAfterOpenBrace */ ?>style="display:none;"<?php endif; /* phpcs:ignore Squiz.ControlStructures.ControlSignature.NewlineAfterOpenBrace */ ?>>
+								<?php $gateway->payment_fields(); ?>
+							</div>
+						<?php endif; 
+					}	
+				} else {
 				echo '<li class="woocommerce-notice woocommerce-notice--info woocommerce-info">' . apply_filters( 'woocommerce_no_available_payment_methods_message', WC()->customer->get_billing_country() ? esc_html__( 'Sorry, it seems that there are no available payment methods for your state. Please contact us if you require assistance or wish to make alternate arrangements.', 'woocommerce' ) : esc_html__( 'Please fill in your details above to see available payment methods.', 'woocommerce' ) ) . '</li>'; // @codingStandardsIgnoreLine
+				echo '</ul>';
 			}
 			?>
-		</ul>
+		
 	<?php endif; ?>
 	<div class="form-row place-order">
 		<noscript>
