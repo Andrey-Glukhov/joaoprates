@@ -34,8 +34,9 @@
                 );       
 
                 $search = new WP_Query($args);
-                if ( $search->have_posts() ) { ?>
-			<div class="col-12 search_title_wrapper"><h1 class="about_header">Search for: <?php echo $_REQUEST[ 'search' ]; ?> </h1>  
+        if ( $search->have_posts() ) { ?>
+			<div class="col-12 search_title_wrapper">
+                <h1 class="about_header">Search for: <?php echo $_REQUEST[ 'search' ]; ?> </h1>  
 				<div>Found <?php echo $search->post_count; ?> results</div>
 		    </div>
 		</div><!-- .row -->
@@ -59,7 +60,7 @@
                 } else { ?>
                     <div class="col-12 search_title_wrapper">
                     <h1 class="about_header">Search for: <?php echo $_REQUEST[ 'search' ]; ?> </h1>
-                    <div >No items were found matching your search request. </diw>  
+                    <div >No items were found matching your search request. </div>  
 				        
 		            </div>
                 <?php }
