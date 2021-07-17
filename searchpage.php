@@ -7,7 +7,7 @@
 <?php
  get_header(); ?>
 
-<div class="container page-padding search_container">
+<div class="container-fluid page-padding search_container">
 	<div class="row justify-content-center">
 		<div class="col-lg-6 col-md-8 col-sm-10 col-11">
 		    <main id="main" class="site-main" role="main">
@@ -45,17 +45,17 @@
         
                     <?php while ( $search->have_posts() ) {
                         $search->the_post();
-                        echo '<div class="col-md-4 col-sm-10 col-11 search_block">';
+                        echo '<div class="col-md-4 col-sm-10 col-12 search_block">';
                         $thumbnail_link = woocommerce_get_product_thumbnail();//get_the_post_thumbnail_url(); 
                         echo '<div class="search_link"><a href="' . get_the_permalink() . '">';    
                         if ($thumbnail_link) {
                             //echo'<img  class="find_image" src="' . $thumbnail_link . '" />';
-                            echo $thumbnail_link;
+                            echo $thumbnail_link . '<p>';
                         } else {
-                            echo'<img class="find_image" src="' . wc_placeholder_img_src() . '" />';
+                            echo'<img class="find_image" src="' . wc_placeholder_img_src() . '" /> <p>';
                             
                         }
-                        echo get_the_title() . '</a></div></div>';
+                       echo get_the_title() . '</p></a></div></div>';
                     } 
                 } else { ?>
                     <div class="col-12 search_title_wrapper">

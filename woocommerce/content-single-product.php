@@ -32,10 +32,10 @@ if ( post_password_required() ) {
 }
 ?>
 <div class="container-fluid page-padding" id="product-<?php the_ID(); ?>" <?php wc_product_class( '', $product ); ?>>
-<div class="row single_product_row justify-content-md-between">
+<div class="row single_product_row justify-content-md-between justify-content-sm-center justify-content-center">
 
 
-    <div class="summary entry-summary single-summary col-md-4 ">
+    <div class="summary entry-summary single-summary col-lg-5 col-md-6  col-sm-12 col-12 order-md-1 order-sm-2 order-2">
         <?php
 		/**
 		 * Hook: woocommerce_single_product_summary.

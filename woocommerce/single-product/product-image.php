@@ -36,7 +36,7 @@ $wrapper_classes   = apply_filters(
 	)
 );
 ?>
-<div class="col-md-7 col-sm-10 col-11 <?php echo esc_attr( implode( ' ', array_map( 'sanitize_html_class', $wrapper_classes ) ) ); ?>" data-columns="<?php echo esc_attr( $columns ); ?>" style="opacity: 0; transition: opacity .25s ease-in-out;">
+<div class="col-lg-7 col-md-6 col-sm-10 col-11 order-md-2 order-sm-1 order-1 <?php echo esc_attr( implode( ' ', array_map( 'sanitize_html_class', $wrapper_classes ) ) ); ?>" data-columns="<?php echo esc_attr( $columns ); ?>" style="opacity: 0; transition: opacity .25s ease-in-out;">
 	<figure class="woocommerce-product-gallery__wrapper">
 		<?php
 		if ( $post_thumbnail_id ) {

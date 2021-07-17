@@ -54,7 +54,7 @@ do_action( 'woocommerce_before_add_to_cart_form' ); ?>
 								preg_match_all("#<\s*?div\b[^>]*>(.*?)</div\b[^>]*>#s", $string, $matches);
 								$found = 0;
 								foreach($matches[0] as $ind => $value ) {
-									if (strpos($value, 'passe-partout')) {
+									if (strpos($value, '26x39cm')) {
 										$found = $ind;
 										$found_str = $value;
 									}
@@ -70,7 +70,7 @@ do_action( 'woocommerce_before_add_to_cart_form' ); ?>
 						</td>
 					</tr>
 					<tr>
-						<td class="label"></td>
+					    <td class="label"></td>
 						<td class="value">
 							Epson paper print mounted on aluminum dibond, behind acrylic glass with aluminum frame<br><br>
 						</td>
@@ -80,6 +80,7 @@ do_action( 'woocommerce_before_add_to_cart_form' ); ?>
 					<tr>
 						<td class="label"><label for="<?php echo esc_attr( sanitize_title( $attribute_name ) ); ?>"></label></td>
 						<td class="value partout">
+						<p class="complete_finish">PRINT WITH PASSE-PARTOUT</p>
 							<?php echo $found_str; ?>
 						</td>
 					</tr>	
