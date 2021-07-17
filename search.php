@@ -1,7 +1,7 @@
 <?php
  get_header(); ?>
 
-<div class="container page-padding">
+<div class="container-fluid page-padding">
 
     <div class="row justify-content-senter">
         <div class="col-md-8 col-sm-12">
