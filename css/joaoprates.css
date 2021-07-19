@@ -1834,14 +1834,14 @@ search
   height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
-  text-align: center;
-  /* background: transparent !important; */
+  text-align: left;
+  background-color: #eae1d4 !important;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
-  justify-content: center;
+  justify-content: flex-start;
 }
 
 #stripe-payment-data {
@@ -1885,6 +1885,13 @@ search
 .shop_table.shop_table_responsive tr.order-total th,
 .shop_table.shop_table_responsive tr.woocommerce-shipping-totals.shipping th{
 border: none;
+}
+.woocommerce-checkout-review-order .shop_table.woocommerce-checkout-review-order-table tr.cart-subtotal th{
+  padding-left: 0 !important;
+}
+.woocommerce-checkout-review-order .shop_table.woocommerce-checkout-review-order-table tr.order-total th{
+  padding-left: 0 !important;
+  border-top: none;
 }
 /*--------------------------------------------------------------
 responsive
@@ -1999,6 +2006,9 @@ responsive
   }
   .search_link a p {
     padding: 0 25px 15px 25px;
+  }
+  h3#order_review_heading{
+    margin-top: 80px;
   }
 }
 
