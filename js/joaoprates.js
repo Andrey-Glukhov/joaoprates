@@ -113,6 +113,17 @@ jQuery(function ($) {
       $(".project_popup").removeClass("show_me");
     });
   }
+
+if ($('.woocommerce-checkout').length) {
+    $(document).on('change', 'input.input-radio[name="payment_method"]', function(e) {
+        var element = e.currentTarget;
+        if ($(element).is(':checked')) {
+            $('li.wc_payment_method').removeClass('input_checked');
+            $(element).parent().addClass('input_checked');
+        }
+    });
+}
+
 });
 $(window).on("load", function () {
   $("#carouselExampleSlidesOnly")
@@ -123,6 +134,9 @@ $(window).on("load", function () {
       autoplaySpeed: 2000,
     })
     .on("setPosition", function (event, slick) {});
+    if ($('.woocommerce-checkout').length) {
+       $('input.input-radio[name="payment_method"]').first().trigger('change'); 
+    }    
 });
 
 function quantityMinus(event) {

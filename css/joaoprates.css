@@ -1332,6 +1332,8 @@ a.shipping-calculator-button {
   color: #000 !important;
   font-weight: normal !important;
 }
+
+
 /*--------------------------------------------------------------
 account
 --------------------------------------------------------------*/
@@ -1819,6 +1821,10 @@ search
   cursor: pointer;
 }
 
+.wc_payment_method.payment_method_paypal.input_checked {
+  background-image: url(../img/cc-paypal-brands_pressed.svg);
+}
+
 .wc_payment_method.payment_method_stripe{
   background-image: url(../img/credit-card-solid.svg);
   background-size: contain;
@@ -1828,6 +1834,9 @@ search
   height: 40px;
   cursor: pointer;
 }
+.wc_payment_method.payment_method_stripe.input_checked {
+  background-image: url(../img/credit-card-solid_solid.svg);
+}
 .wc_payment_method.payment_method_stripe_ideal{
   background-image: url(../img/ideal-brands.svg);
   background-size: contain;
@@ -1836,6 +1845,9 @@ search
   width: 40px;
   height: 40px;
   cursor: pointer;
+}
+.wc_payment_method.payment_method_stripe_ideal.input_checked {
+  background-image: url(../img/ideal-brands_pressed.svg);
 }
 /* .payment_box.payment_method_stripe{
   position: absolute !important;
