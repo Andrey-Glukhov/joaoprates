@@ -23,7 +23,7 @@ defined( 'ABSPATH' ) || exit;
  * @since 2.6.0
  */
 ?>
-<div class="container page-padding min-height">
+<div class="container-fluid page-padding min-height">
     <div class="row">
         <div class="col-md-4 col-sm-12 col-12">
             <?php do_action( 'woocommerce_account_navigation' ); ?>

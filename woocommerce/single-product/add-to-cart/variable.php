@@ -94,6 +94,7 @@ do_action( 'woocommerce_before_add_to_cart_form' ); ?>
 				?>
 			</tbody>
 		</table>
+		<p class="sutro">Learn more about the <a href="http://localhost:8888/JoaoPrates/wordpress/printing-quality/" target="_blank">printing quality</a>.</p>
 
 		<div class="single_variation_wrap">
 			<?php
