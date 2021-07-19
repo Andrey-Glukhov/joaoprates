@@ -36,7 +36,7 @@ if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_requir
 			<?php do_action( 'woocommerce_checkout_before_customer_details' ); ?>
 
 			<div class="row justify-content-between" id="customer_details">
-				<div class="col-lg-5 col-md-5 col-sm-12">
+				<div class="col-lg-5 col-md-5 col-sm-12 line_for_checkout">
 					<?php do_action( 'woocommerce_checkout_billing' ); ?>
 					<div class="add_shipping">
 						<?php do_action( 'woocommerce_checkout_shipping' ); ?>

@@ -1897,6 +1897,26 @@ border: none;
   padding-left: 0 !important;
   border-top: none;
 }
+.woocommerce-checkout-review-order .shop_table.woocommerce-checkout-review-order-table tr.order-total td{
+  padding-left: 0 !important;
+}
+.woocommerce-checkout-review-order tr.cart_item td.product-total{
+  padding-left: 0 !important;
+}
+#payment.woocommerce-checkout-payment{
+  margin-top: 50px;
+}
+input#ship-to-different-address-checkbox{
+  margin-right: 8px;
+}
+.line_for_checkout{
+border-right: 2px solid #000000;
+}
+.frame_col{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
 /*--------------------------------------------------------------
 responsive
 --------------------------------------------------------------*/
@@ -2014,6 +2034,13 @@ responsive
   h3#order_review_heading{
     margin-top: 80px;
   }
+  p#billing_first_name_field,
+  p#billing_last_name_field{
+  width: 100%;
+  }
+  .line_for_checkout{
+    border-right: none;
+    }
 }
 
 /*xs*/
@@ -2129,6 +2156,9 @@ responsive
     padding: 0 22px;
   }
   .small_screen_space {
+    display: none;
+  }
+  .frame-image{
     display: none;
   }
 }
