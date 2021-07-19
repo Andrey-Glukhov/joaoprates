@@ -1331,6 +1331,10 @@ a.shipping-calculator-button {
   color: #000 !important;
   font-weight: normal !important;
 }
+
+.input_checked {
+  background-color: aqua;
+}
 /*--------------------------------------------------------------
 account
 --------------------------------------------------------------*/
