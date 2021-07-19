@@ -1864,6 +1864,10 @@ search
 .shop_table.woocommerce-checkout-review-order-table tr.cart-subtotal th{
   padding: 9px 12px 9px 0;
 }
+.shop_table.shop_table_responsive tr.order-total th,
+.shop_table.shop_table_responsive tr.woocommerce-shipping-totals.shipping th{
+border: none;
+}
 /*--------------------------------------------------------------
 responsive
 --------------------------------------------------------------*/
